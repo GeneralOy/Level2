@@ -44,7 +44,7 @@ public class GameObject {
 		if (y >= 725) {
 			
 			y = 724;
-			ySpeed = 15;
+			ySpeed = 25;
 			ySpeed = -ySpeed;//(ySpeed/2);
 		}
 		if (y <= 0) {

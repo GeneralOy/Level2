@@ -8,9 +8,10 @@ public class GameObject {
 	int ySpeed;
 	int width;
 	int height;
+	String name;
 	Color color;
 
-	public GameObject(int x, int xspeed, int ySpeed, int y, int w, int h, Color c) {
+	public GameObject(int x, int xspeed, int ySpeed, int y, int w, int h, Color c, String name) {
 		this.x = x;
 		this.y = y;
 		this.ySpeed = ySpeed;
@@ -18,6 +19,7 @@ public class GameObject {
 		this.width = w;
 		this.height = h;
 		this.color = c;
+		this.name = name;
 		// x->700, 750, 800
 		// y->300, 350, 400
 	}
@@ -25,6 +27,7 @@ public class GameObject {
 	void update() {
 		x += xSpeed;
 		y += ySpeed;
+		//xSpeed++;
 		ySpeed++;
 		/*
 		 * if(x>=750){
@@ -36,15 +39,16 @@ public class GameObject {
 		if (x >= 1500) {
 			x = 1499;
 			xSpeed = -xSpeed;
+			//xSpeed--;
 		}
 		if (x <= 0) {
 			x = 1;
 			xSpeed = -xSpeed;
+			//xSpeed++;
 		}
 		if (y >= 725) {
 			
 			y = 724;
-			ySpeed = 25;
 			ySpeed = -ySpeed;//(ySpeed/2);
 		}
 		if (y <= 0) {

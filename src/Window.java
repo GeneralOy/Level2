@@ -5,11 +5,13 @@ public class Window {
 	int height;
 	GamePanel mainPanel;
 	JFrame mainFrame = new JFrame();
+
 	public static void main(String[] args) {
 		Window main = new Window(1500, 750);
 	}
+
 	public Window(int width, int height) {
-		
+
 		this.width = width;
 		this.height = height;
 		mainPanel = new GamePanel();

@@ -19,5 +19,6 @@ public class Window {
 		mainFrame.setSize(width, height);
 		mainFrame.setVisible(true);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 	}
 }

@@ -47,7 +47,7 @@ public class GamePanel extends JPanel implements ActionListener {
 		repaint();
 	}
 
-	public Boolean collisionX(GameObject objectCollision) {
+	public boolean collisionX(GameObject objectCollision) {
 		if (objectCollision.x >= object1.x && objectCollision.x <= object1.x + 20) {
 			collision = "object1";
 		}
@@ -64,9 +64,9 @@ public class GamePanel extends JPanel implements ActionListener {
 			collision = "object";
 		}
 		if (objectCollision.name.equals(collision)) {
-			return true;
-		} else {
 			return false;
+		} else {
+			return true;
 		}
 	}
 
@@ -87,9 +87,9 @@ public class GamePanel extends JPanel implements ActionListener {
 			collisionY = "blackobject";
 		}
 		if (objectCollision.name.equals(collisionY)) {
-			return true;
-		} else {
 			return false;
+		} else {
+			return true;
 		}
 	}
 

@@ -3,28 +3,33 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 	
 public class ImageObject {
-	int x;
+	int frogx;
 	int xspeed;
 	int yspeed;
-	int y;
+	int frogy;
 	int w;
+	
 	int h;
-	BufferedImage i;
+	BufferedImage frog;
+	BufferedImage background;
+	BufferedImage truck2;
+	BufferedImage truck1;
+	BufferedImage logs;
 	String name;
 	public ImageObject(int x, int xspeed, int yspeed, int y, int w, int h, BufferedImage i, String name) {
-	this.x = x;
-	this.y = y;
+	this.frogx = x;
+	this.frogy = y;
 	this.xspeed = xspeed;
 	this.yspeed = yspeed;
 	this.w = w;
 	this.h = h;
-	this.i = i;
+	this.frog = i;
 	this.name = name;
 	}
 	void update() {
 		
 	}
 	void draw(Graphics g) {
-		g.drawImage(i, x, y, w, h, null);
+		g.drawImage(frog, frogx, frogy, w, h, null);
 	}
 }

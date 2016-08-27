@@ -35,7 +35,7 @@ public class GameObject {
 		 * } if(x >= 800) { xSpeed = -xSpeed; }if(x <= 700) { xSpeed = -xSpeed;
 		 * }if(y >= 400) { ySpeed = -ySpeed; }if(y <= 300) { ySpeed = -ySpeed; }
 		 */
-
+		if(this.name != "blackobject"){
 		if (x >= 1500) {
 			x = 1499;
 			xSpeed = -xSpeed;
@@ -55,6 +55,17 @@ public class GameObject {
 			y = 1;
 			ySpeed = -ySpeed;
 		}
+	}else if(this.name == "blackobject"){
+		if (y >= 725) {
+			
+			y = 724;
+			ySpeed = -ySpeed;//(ySpeed/2);
+		}
+		if (y <= 0) {
+			y = 1;
+			ySpeed = -ySpeed;
+		}
+	}
 	}
 
 	void draw(Graphics g) {

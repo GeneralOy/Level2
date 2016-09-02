@@ -1,5 +1,12 @@
 
 public class FroggerObject {
+	/* To-Do List
+	 * background set to frogger background
+	 * create images of logs 1-4, trucks 1-4
+	 * create movement
+	 * create sensors
+	 * create detectors
+	 */
 	int y;
 	int x;
 	int yspeed;
@@ -11,14 +18,8 @@ public class FroggerObject {
 		
 	}
 	void update(){
-		/* To-Do List
-		 * background set to frogger background
-		 * create images of logs 1-4, trucks 1-4
-		 * create movement
-		 * create sensors
-		 * create detectors
-		 */
 		
 	}
 	
 }
+

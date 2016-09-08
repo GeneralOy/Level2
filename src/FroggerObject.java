@@ -1,3 +1,4 @@
+import java.awt.image.BufferedImage;
 
 public class FroggerObject {
 	/* To-Do List
@@ -9,12 +10,13 @@ public class FroggerObject {
 	 */
 	int y;
 	int x;
-	int yspeed;
-	int xspeed;
+	//int yspeed;
+	//int xspeed;
 	int w;
 	int h;
-	String name;
-	public FroggerObject(int x, int y, int w, int h, int xspeed, int yspeed){
+	//String name;
+	BufferedImage Froggy;
+	public FroggerObject(int x, int y, int w, int h /**int xspeed, int yspeed*/){
 		
 	}
 	void update(){
@@ -22,4 +24,3 @@ public class FroggerObject {
 	}
 	
 }
-

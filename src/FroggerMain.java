@@ -7,7 +7,7 @@ public class FroggerMain {
 	JFrame mainFrame = new JFrame();
 	
 	public static void main(String[] args) {
-		FroggerMain froggerMain = new FroggerMain(1000,750);
+		FroggerMain froggerMain = new FroggerMain(516,560);
 	}
 	
 	public FroggerMain(int width, int height) {

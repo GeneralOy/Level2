@@ -18,12 +18,12 @@ public class GamePanel extends JPanel implements ActionListener {
 
 	public GamePanel() {
 		
-		//Game background = (FroggerBackground.png);
+		//Gamebackground = (FroggerBackground.png);
 		Frog = new FroggerObject(20,20,20,20);
 		//object3 = new ImageObject(770, 9, 5, 800, 10, 25, Color.BLUE, "object3");
 		//object4 = new ImageObject(540, 7, 7, 390, 13, 19, Color.RED, "object4");
 		//object5 = new ImageObject(200, 3, 2, 300, 15, 15, Color.GREEN, "object5");
-		//black object = new ImageObject(900, 1, 0, 300, 50, 15, Color.BLACK, "blackobject");
+		//blackobject = new ImageObject(900, 1, 0, 300, 50, 15, Color.BLACK, "blackobject");
 		timer = new Timer(1000 / 60, this);
 		timer.start();
 

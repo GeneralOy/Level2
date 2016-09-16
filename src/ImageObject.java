@@ -3,10 +3,10 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 	
 public class ImageObject {
-	int frogx;
+	int x;
 	int xspeed;
 	int yspeed;
-	int frogy;
+	int y;
 	int w;
 	
 	int h;
@@ -17,8 +17,8 @@ public class ImageObject {
 	BufferedImage logs;
 	String name;
 	public ImageObject(int x, int xspeed, int yspeed, int y, int w, int h, BufferedImage i, String name) {
-	this.frogx = x;
-	this.frogy = y;
+	this.x = x;
+	this.y = y;
 	this.xspeed = xspeed;
 	this.yspeed = yspeed;
 	this.w = w;
@@ -30,6 +30,6 @@ public class ImageObject {
 		
 	}
 	void draw(Graphics g) {
-		g.drawImage(frog, frogx, frogy, w, h, null);
+		g.drawImage(frog, x, y, w, h, null);
 	}
 }

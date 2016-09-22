@@ -58,7 +58,10 @@ public class GamePanel extends JPanel implements ActionListener {
 	}
 
 	public boolean collisionX(GameObject objectCollision) {
-		if (objectCollision.x >= log1.x && objectCollision.x <= log2.x + 20) {
+		if (objectCollision.x >= log1.x && objectCollision.x <= log1.x + 20) {
+			collision = "object1";
+		}
+		if (objectCollision.x >= log2.x && objectCollision.x <= log2.x + 20) {
 			collision = "object1";
 		}
 		if (objectCollision.x >= log3.x && objectCollision.x <= log3.x + 10) {
@@ -90,16 +93,22 @@ public class GamePanel extends JPanel implements ActionListener {
 		if (objectCollision.y >= log1.y && objectCollision.y <= log1.y + 15) {
 			collisionY = "object1";
 		}
-		if (objectCollision.y >= object3.y && objectCollision.y <= object3.y + 25) {
+		if (objectCollision.y >= log2.y && objectCollision.y <= log2.y + 25) {
 			collisionY = "object3";
 		}
-		if (objectCollision.y >= object5.y && objectCollision.y <= object5.y + 19) {
+		if (objectCollision.y >= log3.y && objectCollision.y <= log3.y + 19) {
 			collisionY = "object5";
 		}
-		if (objectCollision.y >= object4.y && objectCollision.y <= object4.y + 15) {
+		if (objectCollision.y >= log4.y && objectCollision.y <= log4.y + 15) {
 			collisionY = "object4";
 		}
-		if (objectCollision.y >= blackobject.y && objectCollision.y <= blackobject.y + 15) {
+		if (objectCollision.y >= LTruck1.y && objectCollision.y <= LTruck1.y + 15) {
+			collisionY = "blackobject";
+		}if (objectCollision.y >= LTruck2.y && objectCollision.y <= LTruck2.y + 15) {
+			collisionY = "blackobject";
+		}if (objectCollision.y >= RTruck1.y && objectCollision.y <= RTruck1.y + 15) {
+			collisionY = "blackobject";
+		}if (objectCollision.y >= RTruck2.y && objectCollision.y <= RTruck2.y + 15) {
 			collisionY = "blackobject";
 		}
 		if (objectCollision.name.equals(collisionY)) {

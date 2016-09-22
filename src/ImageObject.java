@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 	
 public class ImageObject {
@@ -29,7 +30,7 @@ public class ImageObject {
 	void update() {
 		
 	}
-	void draw(Graphics g) {
-		g.drawImage(frog, x, y, w, h, null);
+	void draw(Graphics g/**, Image imageName**/) {
+		g.drawImage(/**imageName**/frog, x, y, w, h, null);
 	}
 }

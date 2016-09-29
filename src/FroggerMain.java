@@ -6,6 +6,7 @@ public class FroggerMain {
 	GamePanel mainFroggerPanel;
 	JFrame mainFrame = new JFrame();
 	
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		FroggerMain froggerMain = new FroggerMain(516,560);
 	}
@@ -18,6 +19,7 @@ public class FroggerMain {
 		mainFrame.add(mainFroggerPanel);
 		mainFrame.setSize(width, height);
 		mainFrame.setVisible(true);
+		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 	}
 }

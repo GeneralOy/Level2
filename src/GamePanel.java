@@ -21,12 +21,12 @@ public class GamePanel extends JPanel implements ActionListener {
 	ImageObject RTruck2;
 	// ImageObject Gamebackground;
 	BufferedImage background;
-
+	// ImageIcon backgroundIcon = new ImageIcon("FroggerBackgroundCopy.png");
 	// Gamebackground.x = 0;
 	// Gamebackground.y = 0;
 
 	public GamePanel() {
-		background = new BufferedImage(0, 0, 1);
+		background = new BufferedImage(FroggerBackgroundCopy);
 
 		// Gamebackground = new ImageObject(0, 0, 0, 0, 0, 0, background,
 		// "background");

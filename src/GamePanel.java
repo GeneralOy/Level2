@@ -1,4 +1,3 @@
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,15 +19,18 @@ public class GamePanel extends JPanel implements ActionListener {
 	ImageObject LTruck2;
 	ImageObject RTruck1;
 	ImageObject RTruck2;
-	ImageObject Gamebackground;
+	// ImageObject Gamebackground;
 	BufferedImage background;
-	//Gamebackground.x = 0;
-	//Gamebackground.y = 0;
+
+	// Gamebackground.x = 0;
+	// Gamebackground.y = 0;
 
 	public GamePanel() {
-		background  = FroggerBackgroundCopy.png;
-		Gamebackground = new ImageObject(0,0,0,0,0,0,background,"background");
-		
+		background = new BufferedImage(0, 0, 1);
+
+		// Gamebackground = new ImageObject(0, 0, 0, 0, 0, 0, background,
+		// "background");
+
 		Frog = new FroggerObject(20, 20, 20, 20);
 		// object3 = new ImageObject(770, 9, 5, 800, 10, 25, Color.BLUE,
 		// "object3");
@@ -41,10 +43,10 @@ public class GamePanel extends JPanel implements ActionListener {
 		timer = new Timer(1000 / 60, this);
 		timer.start();
 
-	} 
+	}
 
 	public void paintComponent(Graphics g) {
-		Gamebackground.draw(g);
+		// Gamebackground.draw(g);
 		// object1.draw(g);
 		// blackobject.draw(g);
 		// object3.draw(g);
@@ -58,9 +60,9 @@ public class GamePanel extends JPanel implements ActionListener {
 		// System.out.println("hi");
 		/**
 		 * object1.update(); object3.update(); object4.update();
-		 * object5.update(); blackobject.update(); 
+		 * object5.update(); blackobject.update();
 		 **/
-		//repaint();
+		// repaint();
 	}
 
 	public boolean collisionX(GameObject objectCollision) {
@@ -110,11 +112,14 @@ public class GamePanel extends JPanel implements ActionListener {
 		}
 		if (objectCollision.y >= LTruck1.y && objectCollision.y <= LTruck1.y + 15) {
 			collisionY = "blackobject";
-		}if (objectCollision.y >= LTruck2.y && objectCollision.y <= LTruck2.y + 15) {
+		}
+		if (objectCollision.y >= LTruck2.y && objectCollision.y <= LTruck2.y + 15) {
 			collisionY = "blackobject";
-		}if (objectCollision.y >= RTruck1.y && objectCollision.y <= RTruck1.y + 15) {
+		}
+		if (objectCollision.y >= RTruck1.y && objectCollision.y <= RTruck1.y + 15) {
 			collisionY = "blackobject";
-		}if (objectCollision.y >= RTruck2.y && objectCollision.y <= RTruck2.y + 15) {
+		}
+		if (objectCollision.y >= RTruck2.y && objectCollision.y <= RTruck2.y + 15) {
 			collisionY = "blackobject";
 		}
 		if (objectCollision.name.equals(collisionY)) {

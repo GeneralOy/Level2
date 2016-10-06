@@ -1,9 +1,9 @@
 /.DS_Store
-/Frogger 2.png
-/Frogger 3.png
-/Frogger 4.png
-/Frogger Background copy.png
 /Frogger.png
+/Frogger2.png
+/Frogger3.png
+/Frogger4.png
+/FroggerBackgroundCopy.png
 /FroggerLog.png
 /FroggerMain.class
 /FroggerObject.class
@@ -14,7 +14,5 @@
 /ImageObject.class
 /Time Bar.png
 /Window.class
-/Frogger2.png
-/Frogger4.png
-/Frogger3.png
-/FroggerBackgroundCopy.png
+/FroggerBackgroundCopyOriginal.png
+/FroggerBackgroundCopyRefractor.png

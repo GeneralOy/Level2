@@ -1,8 +1,11 @@
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -10,6 +13,7 @@ public class GamePanel extends JPanel implements ActionListener {
 	Timer timer;
 	public String collision;
 	public String collisionY;
+	public Image Froggerbackground;
 	FroggerObject Frog;
 	ImageObject log3;
 	ImageObject log1;
@@ -19,19 +23,35 @@ public class GamePanel extends JPanel implements ActionListener {
 	ImageObject LTruck2;
 	ImageObject RTruck1;
 	ImageObject RTruck2;
-	// ImageObject Gamebackground;
+	ImageObject backgroundPane;
 	BufferedImage background;
+	Image image;
+
+	// VVtrash codeVV//
+	// ImageObject Gamebackground;
+	// BufferedImage buffered = (BufferedImage) image;
 	// ImageIcon backgroundIcon = new ImageIcon("FroggerBackgroundCopy.png");
 	// Gamebackground.x = 0;
 	// Gamebackground.y = 0;
 
 	public GamePanel() {
-		background = new BufferedImage(FroggerBackgroundCopy);
+		/** VV Assorted Code **/
+		try {
+			background = ImageIO.read(this.getClass().getResourceAsStream("FroggerBackgroundCopy.png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Frog = new FroggerObject(20, 20, 20, 20);
+		timer = new Timer(1000 / 60, this);
+		timer.start();
 
+		// VVtrash codeVV
+		// this.set
+		// = new JLabel();
+		// backgroundPane.setIcon(backgroundPane);
 		// Gamebackground = new ImageObject(0, 0, 0, 0, 0, 0, background,
 		// "background");
-
-		Frog = new FroggerObject(20, 20, 20, 20);
 		// object3 = new ImageObject(770, 9, 5, 800, 10, 25, Color.BLUE,
 		// "object3");
 		// object4 = new ImageObject(540, 7, 7, 390, 13, 19, Color.RED,
@@ -40,12 +60,19 @@ public class GamePanel extends JPanel implements ActionListener {
 		// "object5");
 		// blackobject = new ImageObject(900, 1, 0, 300, 50, 15, Color.BLACK,
 		// "blackobject");
-		timer = new Timer(1000 / 60, this);
-		timer.start();
+		// background = (BufferedImage) image;
+		// ImageObject backgroundPane = new ImageObject(0, 0, 0, 0, 516, 560,
+		// background, "backgroundImage");
+		// imageB =
+		// ImageIO.read(this.getClass().getResourceAsStream("FroggerBackgroundCopy.png"))
 
 	}
 
+	// VV Images VV//
 	public void paintComponent(Graphics g) {
+		g.drawImage(background, 0, 0, null);
+
+		// VVTrash CodeVV
 		// Gamebackground.draw(g);
 		// object1.draw(g);
 		// blackobject.draw(g);
@@ -55,16 +82,20 @@ public class GamePanel extends JPanel implements ActionListener {
 
 	}
 
+	// VV Frog Movement VV//
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// System.out.println("hi");
+
+		// VVTrash CodeVV//
 		/**
 		 * object1.update(); object3.update(); object4.update();
 		 * object5.update(); blackobject.update();
 		 **/
+		// System.out.println("hi");
 		// repaint();
 	}
 
+	// VV X-Axis Collision VV//
 	public boolean collisionX(GameObject objectCollision) {
 		if (objectCollision.x >= log1.x && objectCollision.x <= log1.x + 20) {
 			collision = "object1";
@@ -97,6 +128,7 @@ public class GamePanel extends JPanel implements ActionListener {
 		}
 	}
 
+	////////////////// Y AXIS COLLISION//////////////////
 	public boolean collisionY(GameObject objectCollision) {
 		if (objectCollision.y >= log1.y && objectCollision.y <= log1.y + 15) {
 			collisionY = "object1";

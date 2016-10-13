@@ -7,7 +7,7 @@ public class Window {
 	JFrame mainFrame = new JFrame();
 
 	public static void main(String[] args) {
-		Window main = new Window(1500, 750);
+		Window main = new Window(516, 560);
 	}
 
 	public Window(int width, int height) {
@@ -19,6 +19,6 @@ public class Window {
 		mainFrame.setSize(width, height);
 		mainFrame.setVisible(true);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 	}
 }

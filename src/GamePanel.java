@@ -23,6 +23,7 @@ public class GamePanel extends JPanel implements ActionListener {
 	ImageObject LTruck2;
 	ImageObject RTruck1;
 	ImageObject RTruck2;
+	ImageObject splash;
 	ImageObject backgroundPane;
 	BufferedImage background;
 	Image image;

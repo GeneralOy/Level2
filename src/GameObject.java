@@ -14,9 +14,6 @@ public class GameObject {
 	public GameObject(int x, /* int xspeed, int ySpeed */ int y, int w, int h, Color c, String name) {
 		this.x = x;
 		this.y = y;
-		/*
-		 * this.ySpeed = ySpeed; this.xSpeed = xspeed;
-		 */
 		this.width = w;
 		this.height = h;
 		this.color = c;
@@ -26,50 +23,55 @@ public class GameObject {
 	}
 
 	void update() {
-		/**
-		 * x += xSpeed; y += ySpeed; //xSpeed++; ySpeed++;
-		 **/
-		/*
-		 * if(x>=750){
-		 * 
-		 * } if(x >= 800) { xSpeed = -xSpeed; }if(x <= 700) { xSpeed = -xSpeed;
-		 * }if(y >= 400) { ySpeed = -ySpeed; }if(y <= 300) { ySpeed = -ySpeed; }
-		 */
-		if (this.name != "blackobject") {
-			if (x >= 1500) {
-				x = 1499;
-				//xSpeed = -xSpeed;
-				// xSpeed--;
-			}
-			if (x <= 0) {
-				x = 1;
-				//xSpeed = -xSpeed;
-				// xSpeed++;
-			}
-			if (y >= 725) {
-
-				y = 724;
-				//ySpeed = -ySpeed;// (ySpeed/2);
-			}
-			if (y <= 0) {
-				y = 1;
-				//ySpeed = -ySpeed;
-			}
-		} else if (this.name == "blackobject") {
-			if (y >= 725) {
-
-				y = 724;
-				//ySpeed = -ySpeed;// (ySpeed/2);
-			}
-			if (y <= 0) {
-				y = 1;
-				//ySpeed = -ySpeed;
-			}
-		}
 	}
 
 	void draw(Graphics g) {
-		g.setColor(color);
-		g.fillRect(x, y, width, height);
+		//g.setColor(color);
+		//g.fillRect(x, y, width, height);
 	}
 }
+//TRASH CODE
+
+/*
+ * this.ySpeed = ySpeed; this.xSpeed = xspeed;
+ */
+/**
+ * x += xSpeed; y += ySpeed; //xSpeed++; ySpeed++;
+ **/
+/*
+ * if(x>=750){
+ * 
+ * } if(x >= 800) { xSpeed = -xSpeed; }if(x <= 700) { xSpeed = -xSpeed;
+ * }if(y >= 400) { ySpeed = -ySpeed; }if(y <= 300) { ySpeed = -ySpeed; }
+ */
+//xSpeed = -xSpeed;
+// xSpeed--;
+//xSpeed = -xSpeed;
+// xSpeed++;
+//ySpeed = -ySpeed;
+//ySpeed = -ySpeed;// (ySpeed/2);
+//ySpeed = -ySpeed;
+//ySpeed = -ySpeed;// (ySpeed/2);
+/**if (this.name != "blackobject") {
+if (x >= 1500) {
+	x = 1499;
+}
+if (x <= 0) {
+	x = 1;
+}
+if (y >= 725) {
+
+	y = 724;
+}
+if (y <= 0) {
+	y = 1;
+}
+} else if (this.name == "blackobject") {
+if (y >= 725) {
+
+	y = 724;
+}
+if (y <= 0) {
+	y = 1;
+}
+}*/

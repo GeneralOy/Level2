@@ -29,12 +29,6 @@ public class GamePanel extends JPanel implements ActionListener {
 	BufferedImage LTruck1Image;
 	Image image;
 
-	// VVtrash codeVV//
-	// ImageObject Gamebackground;
-	// BufferedImage buffered = (BufferedImage) image;
-	// ImageIcon backgroundIcon = new ImageIcon("FroggerBackgroundCopy.png");
-	// Gamebackground.x = 0;
-	// Gamebackground.y = 0;
 
 	public GamePanel() {
 		/** VV Assorted Code **/
@@ -45,29 +39,10 @@ public class GamePanel extends JPanel implements ActionListener {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Frog = new FroggerObject(20, 20, 20, 20);
+		Frog = new FroggerObject(20, 20, 64, 64);
 		timer = new Timer(1000 / 60, this);
 		timer.start();
 
-		// VVtrash codeVV
-		// this.set
-		// = new JLabel();
-		// backgroundPane.setIcon(backgroundPane);
-		// Gamebackground = new ImageObject(0, 0, 0, 0, 0, 0, background,
-		// "background");
-		// object3 = new ImageObject(770, 9, 5, 800, 10, 25, Color.BLUE,
-		// "object3");
-		// object4 = new ImageObject(540, 7, 7, 390, 13, 19, Color.RED,
-		// "object4");
-		// object5 = new ImageObject(200, 3, 2, 300, 15, 15, Color.GREEN,
-		// "object5");
-		// blackobject = new ImageObject(900, 1, 0, 300, 50, 15, Color.BLACK,
-		// "blackobject");
-		// background = (BufferedImage) image;
-		// ImageObject backgroundPane = new ImageObject(0, 0, 0, 0, 516, 560,
-		// background, "backgroundImage");
-		// imageB =
-		// ImageIO.read(this.getClass().getResourceAsStream("FroggerBackgroundCopy.png"))
 
 	}
 
@@ -75,13 +50,6 @@ public class GamePanel extends JPanel implements ActionListener {
 	public void paintComponent(Graphics g) {
 		g.drawImage(background, 0, 0, null);
 
-		// VVTrash CodeVV
-		// Gamebackground.draw(g);
-		// object1.draw(g);
-		// blackobject.draw(g);
-		// object3.draw(g);
-		// object4.draw(g);
-		// object5.draw(g);
 
 	}
 
@@ -89,13 +57,6 @@ public class GamePanel extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
-		// VVTrash CodeVV//
-		/**
-		 * object1.update(); object3.update(); object4.update();
-		 * object5.update(); blackobject.update();
-		 **/
-		// System.out.println("hi");
-		// repaint();
 	}
 
 	// VV X-Axis Collision VV//
@@ -165,3 +126,47 @@ public class GamePanel extends JPanel implements ActionListener {
 	}
 
 }
+//TRASH CODE
+
+// VVtrash codeVV//
+// ImageObject Gamebackground;
+// BufferedImage buffered = (BufferedImage) image;
+// ImageIcon backgroundIcon = new ImageIcon("FroggerBackgroundCopy.png");
+// Gamebackground.x = 0;
+// Gamebackground.y = 0;
+
+// VVtrash codeVV
+// this.set
+// = new JLabel();
+// backgroundPane.setIcon(backgroundPane);
+// Gamebackground = new ImageObject(0, 0, 0, 0, 0, 0, background,
+// "background");
+// object3 = new ImageObject(770, 9, 5, 800, 10, 25, Color.BLUE,
+// "object3");
+// object4 = new ImageObject(540, 7, 7, 390, 13, 19, Color.RED,
+// "object4");
+// object5 = new ImageObject(200, 3, 2, 300, 15, 15, Color.GREEN,
+// "object5");
+// blackobject = new ImageObject(900, 1, 0, 300, 50, 15, Color.BLACK,
+// "blackobject");
+// background = (BufferedImage) image;
+// ImageObject backgroundPane = new ImageObject(0, 0, 0, 0, 516, 560,
+// background, "backgroundImage");
+// imageB =
+// ImageIO.read(this.getClass().getResourceAsStream("FroggerBackgroundCopy.png"))
+
+/** VVTrash CodeVV
+/** Gamebackground.draw(g);
+/** object1.draw(g);
+/** blackobject.draw(g);
+/** object3.draw(g);
+/** object4.draw(g);
+/** object5.draw(g);*/
+
+// VVTrash CodeVV//
+/**
+ * object1.update(); object3.update(); object4.update();
+ * object5.update(); blackobject.update();
+ **/
+// System.out.println("hi");
+// repaint();

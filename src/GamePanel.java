@@ -26,6 +26,7 @@ public class GamePanel extends JPanel implements ActionListener {
 	ImageObject splash;
 	ImageObject backgroundPane;
 	BufferedImage background;
+	BufferedImage LTruck1Image;
 	Image image;
 
 	// VVtrash codeVV//
@@ -38,7 +39,8 @@ public class GamePanel extends JPanel implements ActionListener {
 	public GamePanel() {
 		/** VV Assorted Code **/
 		try {
-			background = ImageIO.read(this.getClass().getResourceAsStream("FroggerBackgroundCopy.png"));
+			background = ImageIO.read(this.getClass().getResourceAsStream("Frogger Background.png"));
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

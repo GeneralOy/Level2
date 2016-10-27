@@ -7,7 +7,7 @@ public class Window {
 	JFrame mainFrame = new JFrame();
 
 	public static void main(String[] args) {
-		Window main = new Window(516, 560);
+		Window main = new Window(516, 582);
 	}
 
 	public Window(int width, int height) {

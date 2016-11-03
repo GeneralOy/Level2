@@ -21,6 +21,5 @@ public class FroggerMain {
 		mainFrame.setVisible(true);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		
 	}
 }

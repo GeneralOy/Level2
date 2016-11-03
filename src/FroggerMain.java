@@ -8,11 +8,11 @@ public class FroggerMain {
 	
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
-		FroggerMain froggerMain = new FroggerMain(516,560);
+		FroggerMain froggerMain = new FroggerMain(516,576);
 	}
 	
 	public FroggerMain(int width, int height) {
-	
+		
 		this.width = width;
 		this.height = height;
 		mainFroggerPanel = new GamePanel();
@@ -20,6 +20,7 @@ public class FroggerMain {
 		mainFrame.setSize(width, height);
 		mainFrame.setVisible(true);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		
 	}
 }

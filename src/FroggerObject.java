@@ -1,3 +1,4 @@
+import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
@@ -7,9 +8,9 @@ public class FroggerObject {
 	BufferedImage frogImage;
 	
 	/* To-Do List */
-	 /**background set to frogger background*/
+		/**->background set to frogger background*/
 	/* create images of logs 1-4, trucks 1-4*/
-	/* create images of frog, able to turn */
+	/*-> create images of frog, able to turn */
 	/* create movement-WASD w/ switch to arrows*/
 	/* create sensors for collision*/
 
@@ -28,6 +29,11 @@ public class FroggerObject {
 	}
 	void update(){
 		
+	}
+	public void paintComponent(Graphics g) {
+		g.drawImage(frogImage, 250, 250, null);
+
+
 	}
 	
 }

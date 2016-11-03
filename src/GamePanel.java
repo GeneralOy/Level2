@@ -15,40 +15,88 @@ public class GamePanel extends JPanel implements ActionListener {
 	public String collisionY;
 	public Image Froggerbackground;
 	FroggerObject Frog;
-	ImageObject log3;
-	ImageObject log1;
-	ImageObject log2;
-	ImageObject log4;
-	ImageObject LTruck1;
-	ImageObject LTruck2;
-	ImageObject RTruck1;
-	ImageObject RTruck2;
-	ImageObject splash;
-	ImageObject backgroundPane;
+	int frogX;
+	int frogY;
+	int log1;
+	int log2;
+	int log3;
+	int log4;
+	int rTruck1;
+	int rTruck2;
+	int lTruck1;
+	int lTruck2;
+	//ImageObject log3;
+	//ImageObject log1;
+	//ImageObject log2;
+	//ImageObject log4;
+	//ImageObject LTruck1;
+	//ImageObject LTruck2;
+	//ImageObject RTruck1;
+	//ImageObject RTruck2;
+	//ImageObject splash;
+	//ImageObject backgroundPane;
+	FrogsLogs FullLog1;
 	BufferedImage background;
 	BufferedImage LTruck1Image;
+	BufferedImage frogImage;
+	BufferedImage logImage;
+	BufferedImage Rtruck;
+	BufferedImage Ltruck;
 	Image image;
 
 
 	public GamePanel() {
-		/** VV Assorted Code **/
+		FullLog1 = new FrogsLogs(0,60, "log1", 10);
+		/** VV Image Prep VV **/
+		
 		try {
+			frogImage = ImageIO.read(this.getClass().getResourceAsStream("Frogger.png"));
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}try {
 			background = ImageIO.read(this.getClass().getResourceAsStream("Frogger Background.png"));
 			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}/**try {
+			logImage = ImageIO.read(this.getClass().getResourceAsStream("FroggerLog.png"));
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}try {
+			Rtruck = ImageIO.read(this.getClass().getResourceAsStream("Froggertruck1.png"));
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}try {
+			Ltruck = ImageIO.read(this.getClass().getResourceAsStream("Froggertruck2.png"));
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}**/
+		
+		/**VV ASSORTED CODE VV**/
 		Frog = new FroggerObject(20, 20, 64, 64);
 		timer = new Timer(1000 / 60, this);
 		timer.start();
-
 
 	}
 
 	// VV Images VV//
 	public void paintComponent(Graphics g) {
 		g.drawImage(background, 0, 0, null);
+		//g.drawImage(logImage, log1, 60, null);
+		g.drawImage(logImage, log2, 105, null);
+		g.drawImage(logImage, log3, 150, null);
+		g.drawImage(logImage, log4, 195, null);
+		g.drawImage(frogImage, frogX, frogY, null);
+		g.drawImage(Rtruck, rTruck1, frogY, null);
+		g.drawImage(Rtruck, rTruck2, frogY, null);
+		g.drawImage(Ltruck, lTruck1, frogY, null);
+		g.drawImage(Ltruck, lTruck2, frogY, null);
+		g.drawImage(frogImage, frogX, frogY, null);
+		
 
 
 	}
@@ -60,8 +108,8 @@ public class GamePanel extends JPanel implements ActionListener {
 	}
 
 	// VV X-Axis Collision VV//
-	public boolean collisionX(GameObject objectCollision) {
-		if (objectCollision.x >= log1.x && objectCollision.x <= log1.x + 20) {
+	//**public boolean collisionX(GameObject objectCollision) {
+		/**if (objectCollision.x >= log1.x && objectCollision.x <= log1.x + 20) {
 			collision = "object1";
 		}
 		if (objectCollision.x >= log2.x && objectCollision.x <= log2.x + 20) {
@@ -90,10 +138,10 @@ public class GamePanel extends JPanel implements ActionListener {
 		} else {
 			return true;
 		}
-	}
+	}**/
 
 	////////////////// Y AXIS COLLISION//////////////////
-	public boolean collisionY(GameObject objectCollision) {
+	/**public boolean collisionY(GameObject objectCollision) {
 		if (objectCollision.y >= log1.y && objectCollision.y <= log1.y + 15) {
 			collisionY = "object1";
 		}
@@ -123,7 +171,7 @@ public class GamePanel extends JPanel implements ActionListener {
 		} else {
 			return true;
 		}
-	}
+	}**/
 
 }
 //TRASH CODE

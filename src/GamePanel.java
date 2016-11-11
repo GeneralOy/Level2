@@ -81,7 +81,6 @@ public class GamePanel extends JPanel implements ActionListener {
 		timer = new Timer(1000 / 60, this);
 		timer.start();
 		System.out.println(" " + FullLog1.x);
-		log1 ++;
 		repaint();
 	}
 
@@ -105,7 +104,7 @@ public class GamePanel extends JPanel implements ActionListener {
 	// VV Frog Movement VV//
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
+		 repaint();
 	}
 
 	// VV X-Axis Collision VV//

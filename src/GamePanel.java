@@ -59,7 +59,7 @@ public class GamePanel extends JPanel implements ActionListener {
 			
 		} catch (IOException e) {
 			e.printStackTrace();
-		}/**try {
+		}try {
 			logImage = ImageIO.read(this.getClass().getResourceAsStream("FroggerLog.png"));
 			
 		} catch (IOException e) {
@@ -74,19 +74,21 @@ public class GamePanel extends JPanel implements ActionListener {
 			
 		} catch (IOException e) {
 			e.printStackTrace();
-		}**/
+		}
 		
 		/**VV ASSORTED CODE VV**/
 		Frog = new FroggerObject(20, 20, 64, 64);
 		timer = new Timer(1000 / 60, this);
 		timer.start();
-
+		System.out.println(" " + FullLog1.x);
+		log1 ++;
+		repaint();
 	}
 
 	// VV Images VV//
 	public void paintComponent(Graphics g) {
 		g.drawImage(background, 0, 0, null);
-		//g.drawImage(logImage, log1, 60, null);
+		g.drawImage(logImage, log1, 60, null);
 		g.drawImage(logImage, log2, 105, null);
 		g.drawImage(logImage, log3, 150, null);
 		g.drawImage(logImage, log4, 195, null);
@@ -96,9 +98,8 @@ public class GamePanel extends JPanel implements ActionListener {
 		g.drawImage(Ltruck, lTruck1, frogY, null);
 		g.drawImage(Ltruck, lTruck2, frogY, null);
 		g.drawImage(frogImage, frogX, frogY, null);
-		
-
-
+		//frogX ++;
+		FullLog1.update();
 	}
 
 	// VV Frog Movement VV//

@@ -27,7 +27,8 @@ public class FrogsLogs {
 	}
 
 	void update() {
-		
+		this.x ++;
+		System.out.println("" + this.x);
 	}
 	
 	void draw(Graphics g) {

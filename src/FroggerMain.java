@@ -3,6 +3,7 @@ import javax.swing.JFrame;
 public class FroggerMain {
 	int width;
 	int height;
+	int testx;
 	GamePanel mainFroggerPanel;
 	JFrame mainFrame = new JFrame();
 	

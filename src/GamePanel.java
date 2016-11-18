@@ -95,7 +95,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	// VV Images VV//
 	public void paintComponent(Graphics g) {
 		if(isMoving = true){
-			
+			if(key)
 			if(keyTyped == "w") {
 				frogY += 5;
 				System.out.println("DONE");

@@ -27,8 +27,12 @@ public class FrogsLogs {
 	}
 
 	void update() {
-		this.x ++;
 		System.out.println("" + this.x);
+		if(this.x >= 60){
+			this.x -= 59;
+		}else {
+			this.x ++;
+		}
 	}
 	
 	void draw(Graphics g) {

@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.HashMap;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
@@ -40,6 +41,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	// ImageObject RTruck2;
 	// ImageObject splash;
 	// ImageObject backgroundPane;
+	HashMap<Integer, String> keyPressed = new HashMap<Integer, String>();
+	KeyListener keyListener;
 	FrogsLogs FullLog1;
 	BufferedImage background;
 	BufferedImage LTruck1Image;
@@ -48,9 +51,19 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	BufferedImage Rtruck;
 	BufferedImage Ltruck;
 	Image image;
+	int W = new Integer(KeyEvent.VK_W);
+	int A = new Integer(KeyEvent.VK_A);
+	int S = new Integer(KeyEvent.VK_S);
+	int D = new Integer(KeyEvent.VK_D);
 
 	public GamePanel() {
+		//keyPressed.put(KeyEvent.VK_W, "W");
+		//keyPressed.put(KeyEvent.VK_A, "A");
+		//keyPressed.put(KeyEvent.VK_S, "S");
+		//keyPressed.put(KeyEvent.VK_D, "D");
+		
 		FullLog1 = new FrogsLogs(0, 60, "log1", 10);
+		
 		/** VV Image Prep VV **/
 
 		try {
@@ -94,18 +107,33 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 	// VV Images VV//
 	public void paintComponent(Graphics g) {
-		if(isMoving = true){
-			if(key)
-			if(keyTyped == "w") {
+		//if(isMoving){
+			if(key == W) {
+				frogY -= 5;
+				System.out.println("W");
+			}else if(key == A) {
 				frogY += 5;
-				System.out.println("DONE");
-			}else if(keyTyped == "a") {
-				
-			}else if(keyTyped == "s") {
-				
-			}else if(keyTyped == "d") {
-				
+				System.out.println("A");
+			}else if(key == S) {
+				frogX -= 5;
+				System.out.println("S");
+			}else if(key == D) {
+				frogX += 5;
+				System.out.println("D");
 			}
+			log1 += 6;
+			log2 += 5;
+			log3 += -10;
+			log4 += 7;
+		//}
+		if(log1 >= 520){
+			log1 = -300;
+		}if(log2 >= 530){
+			log2 = -290;
+		}if(log3 <= -320){
+			log3 = 520;
+		}if(log4 >= 520){
+			log4 = -290;
 		}
 		g.drawImage(background, 0, 0, null);
 		g.drawImage(logImage, log1, 60, null);
@@ -133,21 +161,20 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public void keyTyped(KeyEvent e) {
 		key = e.getKeyCode();
 		System.out.println("RUNNING");
-		keyTyped = e.getKeyText(e.getKeyCode());
 		System.out.println(keyTyped);
-		if (e.equals("w")) {
+		if (key == W ) {
 			keyTyped = "w";
 			System.out.println("w");
 		}
-		if (e.equals("a")) {
+		if (key == A) {
 			keyTyped = "a";
 			System.out.println("a");
 		}
-		if (e.equals("s")) {
+		if (key == S) {
 			keyTyped = "s";
 			System.out.println("s");
 		}
-		if (e.equals("d")) {
+		if (key == D) {
 			keyTyped = "d";
 			System.out.println("d");
 		}

@@ -20,6 +20,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public Boolean isMoving;
 	public String keyTyped;
 	public int key;
+	public KeyListener keylistener1;
 	FroggerObject Frog;
 	int frogX;
 	int frogY;
@@ -42,7 +43,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	// ImageObject splash;
 	// ImageObject backgroundPane;
 	HashMap<Integer, String> keyPressed = new HashMap<Integer, String>();
-	KeyListener keyListener;
+	
 	FrogsLogs FullLog1;
 	BufferedImage background;
 	BufferedImage LTruck1Image;
@@ -55,6 +56,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	int A = new Integer(KeyEvent.VK_A);
 	int S = new Integer(KeyEvent.VK_S);
 	int D = new Integer(KeyEvent.VK_D);
+	
 
 	public GamePanel() {
 		//keyPressed.put(KeyEvent.VK_W, "W");
@@ -99,6 +101,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 		/** VV ASSORTED CODE VV **/
 		Frog = new FroggerObject(20, 20, 64, 64);
+		System.out.println("asdf");
 		timer = new Timer(1000 / 60, this);
 		timer.start();
 		System.out.println(" " + FullLog1.x);
@@ -108,10 +111,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	// VV Images VV//
 	public void paintComponent(Graphics g) {
 		//if(isMoving){
-			if(key == W) {
+			if(keyTyped == "w") {
 				frogY -= 5;
 				System.out.println("W");
-			}else if(key == A) {
+			}/*else if(key == A) {
 				frogY += 5;
 				System.out.println("A");
 			}else if(key == S) {
@@ -120,7 +123,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			}else if(key == D) {
 				frogX += 5;
 				System.out.println("D");
-			}
+			}*/
 			log1 += 6;
 			log2 += 5;
 			log3 += -10;
@@ -162,7 +165,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		key = e.getKeyCode();
 		System.out.println("RUNNING");
 		System.out.println(keyTyped);
-		if (key == W ) {
+		if (key == KeyEvent.VK_W ) {
+			frogY -= 10;
 			keyTyped = "w";
 			System.out.println("w");
 		}
@@ -178,6 +182,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			keyTyped = "d";
 			System.out.println("d");
 		}
+		System.out.println("key");
 	}
 
 	public void keyPressed(KeyEvent e) {

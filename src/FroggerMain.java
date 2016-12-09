@@ -1,5 +1,6 @@
 import javax.swing.JFrame;
 
+
 public class FroggerMain {
 	int width;
 	int height;
@@ -17,6 +18,7 @@ public class FroggerMain {
 		this.width = width;
 		this.height = height;
 		mainFroggerPanel = new GamePanel();
+		mainFrame.addKeyListener(mainFroggerPanel);
 		mainFrame.add(mainFroggerPanel);
 		mainFrame.setSize(width, height);
 		mainFrame.setVisible(true);

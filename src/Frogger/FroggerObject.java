@@ -1,3 +1,4 @@
+package Frogger;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.IOException;

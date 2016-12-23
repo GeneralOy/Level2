@@ -24,7 +24,6 @@ public class FroggerObject {
 			frogImage = ImageIO.read(this.getClass().getResourceAsStream("Frogger.png"));
 			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

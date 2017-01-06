@@ -18,7 +18,7 @@ public class FrogsLogs {
 		this.y = y;
 		this.name = name;
 		try {
-			logImage = ImageIO.read(this.getClass().getResourceAsStream("FroggerLog.png"));
+			logImage = ImageIO.read(this.getClass().getResourceAsStream("../FroggerLog.png"));
 			
 		} catch (IOException e) {
 			e.printStackTrace();

@@ -7,6 +7,7 @@ public class FroggerMain {
 	int height;
 	int testx;
 	GamePanel mainFroggerPanel;
+	FroggerKeyManager KeyManager;
 	JFrame mainFrame = new JFrame();
 	
 	@SuppressWarnings("unused")
@@ -19,7 +20,10 @@ public class FroggerMain {
 		this.width = width;
 		this.height = height;
 		mainFroggerPanel = new GamePanel();
-		mainFrame.addKeyListener(mainFroggerPanel);
+		KeyManager = new FroggerKeyManager();
+		//mainFrame.addKeyListener(mainFroggerPanel);
+		mainFrame.addKeyListener(KeyManager);
+		//System.out.println("working1");
 		mainFrame.add(mainFroggerPanel);
 		mainFrame.setSize(width, height);
 		mainFrame.setVisible(true);

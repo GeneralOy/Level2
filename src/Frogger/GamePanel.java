@@ -70,31 +70,31 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		/** VV Image Prep VV **/
 
 		try {
-			frogImage = ImageIO.read(this.getClass().getResourceAsStream("Frogger.png"));
+			frogImage = ImageIO.read(this.getClass().getResourceAsStream("../Frogger.png"));
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		try {
-			background = ImageIO.read(this.getClass().getResourceAsStream("Frogger Background.png"));
+			background = ImageIO.read(this.getClass().getResourceAsStream("../Frogger Background.png"));
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		try {
-			logImage = ImageIO.read(this.getClass().getResourceAsStream("FroggerLog.png"));
+			logImage = ImageIO.read(this.getClass().getResourceAsStream("../FroggerLog.png"));
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		try {
-			Rtruck = ImageIO.read(this.getClass().getResourceAsStream("Froggertruck1.png"));
+			Rtruck = ImageIO.read(this.getClass().getResourceAsStream("../Froggertruck1.png"));
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		try {
-			Ltruck = ImageIO.read(this.getClass().getResourceAsStream("Froggertruck2.png"));
+			Ltruck = ImageIO.read(this.getClass().getResourceAsStream("../Froggertruck2.png"));
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -125,6 +125,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 				frogX += 5;
 				System.out.println("D");
 			}
+			Frog.update();
 			log1 += 6;
 			log2 += 5;
 			log3 += -10;

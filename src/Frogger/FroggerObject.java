@@ -12,7 +12,6 @@ import javax.imageio.ImageIO;
 
 public class FroggerObject {
 	BufferedImage frogImage;
-	
 	/* To-Do List */
 		/**->background set to frogger background*/
 	/* create images of logs 1-4, trucks 1-4*/
@@ -33,6 +32,9 @@ public class FroggerObject {
 			e.printStackTrace();
 		}
 	}
+	public void paintComponent(Graphics g) {
+		g.drawImage(frogImage, x, y, null);
+	}
 	void update(){
 		if(FroggerKeyManager.down){
 			goDown();
@@ -47,12 +49,9 @@ public class FroggerObject {
 		}if(FroggerKeyManager.up){
 			goUp();
 			FroggerKeyManager.up = false;
-			
 		}
 	}
-	public void paintComponent(Graphics g) {
-		g.drawImage(frogImage, x, y, null);
-	}
+	
 	
 	/*public boolean dispatchKeyEvent(KeyEvent e) {
 		if (e.getID() == KeyEvent.KEY_PRESSED) {

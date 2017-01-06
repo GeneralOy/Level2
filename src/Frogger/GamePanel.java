@@ -152,6 +152,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		g.drawImage(Ltruck, lTruck2, frogY, null);
 		g.drawImage(frogImage, frogX, frogY, null);
 		FullLog1.update();
+		
 	}
 
 	// VV Frog Movement VV//

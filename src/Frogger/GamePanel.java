@@ -1,4 +1,5 @@
 package Frogger;
+
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -44,7 +45,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	// ImageObject splash;
 	// ImageObject backgroundPane;
 	HashMap<Integer, String> keyPressed = new HashMap<Integer, String>();
-	
+
 	FrogsLogs FullLog1;
 	BufferedImage background;
 	BufferedImage LTruck1Image;
@@ -57,24 +58,23 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	int A = new Integer(KeyEvent.VK_A);
 	int S = new Integer(KeyEvent.VK_S);
 	int D = new Integer(KeyEvent.VK_D);
-	
 
 	public GamePanel() {
-		//keyPressed.put(KeyEvent.VK_W, "W");
-		//keyPressed.put(KeyEvent.VK_A, "A");
-		//keyPressed.put(KeyEvent.VK_S, "S");
-		//keyPressed.put(KeyEvent.VK_D, "D");
-		
-		FullLog1 = new FrogsLogs(0, 60, "log1", 10);
-		
+		// keyPressed.put(KeyEvent.VK_W, "W");
+		// keyPressed.put(KeyEvent.VK_A, "A");
+		// keyPressed.put(KeyEvent.VK_S, "S");
+		// keyPressed.put(KeyEvent.VK_D, "D");
+
+		FullLog1 = new FrogsLogs(log1, 60, "log1", 10, "log");
+
 		/** VV Image Prep VV **/
+		/**
+		 * try { frogImage =
+		 * ImageIO.read(this.getClass().getResourceAsStream("../Frogger.png"));
+		 * 
+		 * } catch (IOException e) { e.printStackTrace(); }
+		 **/
 
-		try {
-			frogImage = ImageIO.read(this.getClass().getResourceAsStream("../Frogger.png"));
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 		try {
 			background = ImageIO.read(this.getClass().getResourceAsStream("../Frogger Background.png"));
 
@@ -101,58 +101,61 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		}
 
 		/** VV ASSORTED CODE VV **/
-		Frog = new FroggerObject(20, 20, 64, 64);
+		Frog = new FroggerObject(195, 195, 64, 64);
 		System.out.println("asdf");
 		timer = new Timer(1000 / 60, this);
 		timer.start();
-		System.out.println(" " + FullLog1.x);
+		// System.out.println(" " + FullLog1.x);
 		repaint();
 	}
 
 	// VV Images VV//
 	public void paintComponent(Graphics g) {
-		//if(isMoving){
-			if(keyTyped1 == "w") {
-				frogY -= 5;
-				System.out.println("W");
-			}if(keyTyped1 == "a") {
-				frogY += 5;
-				System.out.println("A");
-			}if(keyTyped1 == "s") {
-				frogX -= 5;
-				System.out.println("S");
-			}if(keyTyped1 == "d") {
-				frogX += 5;
-				System.out.println("D");
-			}
-			Frog.update();
-			log1 += 6;
-			log2 += 5;
-			log3 += -10;
-			log4 += 7;
-		//}
-		if(log1 >= 520){
+		// if(isMoving){
+
+		Frog.update();
+		log1 += 6;
+		log2 += 5;
+		log3 += -10;
+		log4 += 7;
+		// }
+		if (log1 >= 520) {
 			log1 = -300;
-		}if(log2 >= 530){
+		}
+		if (log2 >= 530) {
 			log2 = -290;
-		}if(log3 <= -320){
+		}
+		if (log3 <= -320) {
 			log3 = 520;
-		}if(log4 >= 520){
+		}
+		if (log4 >= 520) {
 			log4 = -290;
+		}
+		if (rTruck1 >= 520) {
+			rTruck1 = -300;
+		}
+		if (rTruck2 >= 530) {
+			rTruck2 = -290;
+		}
+		if (lTruck1 <= -320) {
+			lTruck1 = 520;
+		}
+		if (lTruck2 >= 520) {
+			lTruck2 = -290;
 		}
 		g.drawImage(background, 0, 0, null);
 		g.drawImage(logImage, log1, 60, null);
 		g.drawImage(logImage, log2, 105, null);
 		g.drawImage(logImage, log3, 150, null);
 		g.drawImage(logImage, log4, 195, null);
-		g.drawImage(frogImage, frogX, frogY, null);
+		Frog.draw(g);
 		g.drawImage(Rtruck, rTruck1, frogY, null);
 		g.drawImage(Rtruck, rTruck2, frogY, null);
 		g.drawImage(Ltruck, lTruck1, frogY, null);
 		g.drawImage(Ltruck, lTruck2, frogY, null);
-		g.drawImage(frogImage, frogX, frogY, null);
-		FullLog1.update();
-		
+		// g.drawImage(frogImage, frogX, frogY, null);
+		// FullLog1.update();
+
 	}
 
 	// VV Frog Movement VV//
@@ -167,7 +170,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		key = e.getKeyCode();
 		System.out.println("RUNNING");
 		System.out.println(keyTyped1);
-		if (key == KeyEvent.VK_W ) {
+		if (key == KeyEvent.VK_W) {
 			frogY -= 10;
 			keyTyped1 = "w";
 			System.out.println("w");

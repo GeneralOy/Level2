@@ -20,16 +20,39 @@ public class FroggerObject {
 	int w;
 	int h;
 	boolean isMoving;
+	String direction = "left";
+	BufferedImage up;
+	BufferedImage right;
+	BufferedImage left;
+	BufferedImage down;
 
-	public FroggerObject(int x, int y, int w,
-			int h /** int xspeed, int yspeed */
-	) {
+	public FroggerObject(int x, int y, int w, int h,
+			String direction/* int xspeed, int yspeed */) {
 		this.x = x;
 		this.y = y;
 		this.w = w;
 		this.h = h;
+		this.direction = direction;
 		try {
-			frogImage = ImageIO.read(this.getClass().getResourceAsStream("../Frogger.png"));
+			up = ImageIO.read(this.getClass().getResourceAsStream("../Frogger.png"));
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			right = ImageIO.read(this.getClass().getResourceAsStream("../Frogger 2.png"));
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			left = ImageIO.read(this.getClass().getResourceAsStream("../Frogger 3.png"));
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			down = ImageIO.read(this.getClass().getResourceAsStream("../Frogger 4.png"));
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -37,6 +60,21 @@ public class FroggerObject {
 	}
 
 	void update() {
+		System.out.println("frog.update");
+		if (direction.equals("up")) {
+			frogImage = up;
+		}
+		if (direction.equals("right")) {
+			frogImage = right;
+		}
+		if (direction.equals("left")) {
+			frogImage = left;
+			System.out.println("Left");
+		}
+		if (direction.equals("down")) {
+			frogImage = down;
+			System.out.println("down");
+		}
 		if (FroggerKeyManager.down) {
 			goDown();
 			// System.out.println("downUPDATE");
@@ -73,6 +111,7 @@ public class FroggerObject {
 		// TODO Auto-generated method stub
 		System.out.println("up");
 		y -= 45;
+
 	}
 
 	public void goDown() {
@@ -95,6 +134,10 @@ public class FroggerObject {
 
 	public void draw(Graphics g) {
 		g.drawImage(frogImage, x, y, null);
+	}
+
+	public void setDirection(String direction) {
+		this.direction = direction;
 	}
 
 }

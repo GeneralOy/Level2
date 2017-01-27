@@ -1,3 +1,4 @@
+
 package Frogger;
 
 import java.awt.Graphics;
@@ -6,7 +7,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class FrogsLogs {
+public class FroggerTrucks {
 	public int y;
 	public int x;
 	public int fps;
@@ -16,16 +17,23 @@ public class FrogsLogs {
 	public BufferedImage logImage;
 	String image;
 
-	public FrogsLogs(int x, /* int xspeed, int ySpeed */ int y, String name, int xspeed, String image) {
+	public FroggerTrucks(int x, /* int xspeed, int ySpeed */ int y, String name, int xspeed, String image) {
 		this.x = x;
 		this.y = y;
 		this.name = name;
 		this.image = image;
 		this.xspeed = xspeed;
 
-		if (image.equals("log")) {
+		if (image.equals("ltruck")) {
 			try {
-				logImage = ImageIO.read(this.getClass().getResourceAsStream("../FroggerLog.png"));
+				logImage = ImageIO.read(this.getClass().getResourceAsStream("../FroggerTruck2.png"));
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} else if (image.equals("rtruck")) {
+			try {
+				logImage = ImageIO.read(this.getClass().getResourceAsStream("../Froggertruck1.png"));
 
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -42,13 +50,13 @@ public class FrogsLogs {
 		} else {
 			this.fps++;
 		}
-		if (name.equals("rlog")) {
+		if (name.equals("rtruck")) {
 			if (x >= 520) {
 				x = -300;
 			} else {
 				x += xspeed;
 			}
-		} else if (name.equals("llog")) {
+		} else if (name.equals("ltruck")) {
 			if (x <= -300) {
 				x = 520;
 			} else {
@@ -59,6 +67,7 @@ public class FrogsLogs {
 
 	void draw(Graphics g) {
 		g.drawImage(logImage, x, y, null);
+		System.out.println("DRAWN");
 		// g.setColor(color);
 		// g.fillRect(x, y, width, height);
 	}

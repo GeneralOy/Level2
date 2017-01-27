@@ -45,8 +45,15 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	// ImageObject splash;
 	// ImageObject backgroundPane;
 	HashMap<Integer, String> keyPressed = new HashMap<Integer, String>();
-
-	FrogsLogs FullLog1;
+	public String frogDirection;
+	FrogsLogs RLog1;
+	FrogsLogs RLog2;
+	FrogsLogs LLog1;
+	FrogsLogs LLog2;
+	FroggerTrucks rtruck1;
+	FroggerTrucks rtruck2;
+	FroggerTrucks ltruck1;
+	FroggerTrucks ltruck2;
 	BufferedImage background;
 	BufferedImage LTruck1Image;
 	BufferedImage frogImage;
@@ -54,18 +61,27 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	BufferedImage Rtruck;
 	BufferedImage Ltruck;
 	Image image;
+	int counter;
 	int W = new Integer(KeyEvent.VK_W);
 	int A = new Integer(KeyEvent.VK_A);
 	int S = new Integer(KeyEvent.VK_S);
 	int D = new Integer(KeyEvent.VK_D);
 
 	public GamePanel() {
+		frogDirection = "up";
 		// keyPressed.put(KeyEvent.VK_W, "W");
 		// keyPressed.put(KeyEvent.VK_A, "A");
 		// keyPressed.put(KeyEvent.VK_S, "S");
 		// keyPressed.put(KeyEvent.VK_D, "D");
 
-		FullLog1 = new FrogsLogs(log1, 60, "log1", 10, "log");
+		RLog1 = new FrogsLogs(log1, 60, "rlog", 8, "log");
+		RLog2 = new FrogsLogs(log2, 105, "rlog", 7, "log");
+		LLog1 = new FrogsLogs(log3, 150, "llog", -8, "log");
+		LLog2 = new FrogsLogs(log4, 195, "rlog", 6, "log");
+		rtruck1 = new FroggerTrucks(rTruck1, 285, "rtruck", 10, "rtruck");
+		rtruck2 = new FroggerTrucks(rTruck2, 375, "rtruck", 8, "rtruck");
+		ltruck1 = new FroggerTrucks(lTruck1, 325, "ltruck", -7, "ltruck");
+		ltruck2 = new FroggerTrucks(lTruck2, 415, "ltruck", -5, "ltruck");
 
 		/** VV Image Prep VV **/
 		/**
@@ -101,7 +117,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		}
 
 		/** VV ASSORTED CODE VV **/
-		Frog = new FroggerObject(195, 195, 64, 64);
+		Frog = new FroggerObject(195, 195, 64, 64, "left");
 		System.out.println("asdf");
 		timer = new Timer(1000 / 60, this);
 		timer.start();
@@ -113,11 +129,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public void paintComponent(Graphics g) {
 		// if(isMoving){
 
-		Frog.update();
 		log1 += 6;
 		log2 += 5;
 		log3 += -10;
-		log4 += 7;
+		log4 += -7;
 		// }
 		if (log1 >= 520) {
 			log1 = -300;
@@ -144,24 +159,45 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			lTruck2 = -290;
 		}
 		g.drawImage(background, 0, 0, null);
-		g.drawImage(logImage, log1, 60, null);
-		g.drawImage(logImage, log2, 105, null);
-		g.drawImage(logImage, log3, 150, null);
-		g.drawImage(logImage, log4, 195, null);
+		RLog1.draw(g);
+		RLog2.draw(g);
+		LLog1.draw(g);
+		LLog2.draw(g);
+
+		/*
+		 * g.drawImage(logImage, log1, 60, null); g.drawImage(logImage, log2,
+		 * 105, null); g.drawImage(logImage, log3, 150, null);
+		 * g.drawImage(logImage, log4, 195, null);
+		 */
 		Frog.draw(g);
-		g.drawImage(Rtruck, rTruck1, frogY, null);
-		g.drawImage(Rtruck, rTruck2, frogY, null);
-		g.drawImage(Ltruck, lTruck1, frogY, null);
-		g.drawImage(Ltruck, lTruck2, frogY, null);
+		/*
+		 * g.drawImage(Rtruck, rTruck1, frogY, null); g.drawImage(Rtruck,
+		 * rTruck2, frogY, null); g.drawImage(Ltruck, lTruck1, frogY, null);
+		 * g.drawImage(Ltruck, lTruck2, frogY, null);
+		 */
 		// g.drawImage(frogImage, frogX, frogY, null);
 		// FullLog1.update();
 
+		rtruck1.draw(g);
+		rtruck2.draw(g);
+		ltruck1.draw(g);
+		ltruck2.draw(g);
+		System.out.println("DRAW");
 	}
 
 	// VV Frog Movement VV//
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// String PerformedAction =
+		RLog1.update();
+		LLog1.update();
+		RLog2.update();
+		LLog2.update();
+		Frog.update();
+		rtruck1.update();
+		rtruck2.update();
+		ltruck1.update();
+		ltruck2.update();
 		repaint();
 
 	}
@@ -174,20 +210,25 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			frogY -= 10;
 			keyTyped1 = "w";
 			System.out.println("w");
+			frogDirection = "up";
 		}
 		if (key == A) {
 			keyTyped1 = "a";
 			System.out.println("a");
+			frogDirection = "left";
 		}
 		if (key == S) {
 			keyTyped1 = "s";
 			System.out.println("s");
+			frogDirection = "down";
 		}
 		if (key == D) {
 			keyTyped1 = "d";
 			System.out.println("d");
+			frogDirection = "right";
 		}
 		System.out.println("key");
+		Frog.setDirection(frogDirection);
 	}
 
 	public void keyPressed(KeyEvent e) {

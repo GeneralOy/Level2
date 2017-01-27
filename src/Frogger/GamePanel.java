@@ -117,7 +117,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		}
 
 		/** VV ASSORTED CODE VV **/
-		Frog = new FroggerObject(195, 195, 64, 64, "left");
+		Frog = new FroggerObject(195, 195, 64, 64, "up");
 		System.out.println("asdf");
 		timer = new Timer(1000 / 60, this);
 		timer.start();
@@ -199,7 +199,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		ltruck1.update();
 		ltruck2.update();
 		repaint();
-
+		// THIS IS A THING.
 	}
 
 	public void keyTyped(KeyEvent e) {

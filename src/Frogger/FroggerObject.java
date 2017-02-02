@@ -10,9 +10,9 @@ public class FroggerObject {
 	BufferedImage frogImage;
 	/* To-Do List */
 	/** ->background set to frogger background */
-	/* create images of logs 1-4, trucks 1-4 */
-	/*-> create images of frog, able to turn */
-	/* create movement-WASD w/ switch to arrows */
+	/** create images of logs 1-4, trucks 1-4 */
+	/** create images of frog, *//* able to turn */
+	/** create movement-WASD w/ *//* switch to arrows */
 	/* create sensors for collision */
 
 	int y;

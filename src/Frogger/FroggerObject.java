@@ -20,6 +20,7 @@ public class FroggerObject {
 	int w;
 	int h;
 	boolean isMoving;
+	String imageDirection;
 	String direction = "left";
 	BufferedImage up;
 	BufferedImage right;
@@ -60,22 +61,28 @@ public class FroggerObject {
 	}
 
 	void update() {
+		setDirection(FroggerKeyManager.frogDirection);
 		System.out.println("frog.update");
 		if (direction.equals("up")) {
 			frogImage = up;
 			System.out.println("up");
+			imageDirection = "up";
 		}
 		if (direction.equals("right")) {
 			frogImage = right;
 			System.out.println("right");
+			imageDirection = "right";
 		}
 		if (direction.equals("left")) {
 			frogImage = left;
 			System.out.println("Left");
+			imageDirection = "left";
 		}
 		if (direction.equals("down")) {
 			frogImage = down;
 			System.out.println("down");
+			imageDirection = "down";
+			System.out.println("DOWN");
 		}
 		if (FroggerKeyManager.down) {
 			goDown();
@@ -136,10 +143,13 @@ public class FroggerObject {
 
 	public void draw(Graphics g) {
 		g.drawImage(frogImage, x, y, null);
+		System.out.println("" + imageDirection + ";Frogimage = " + frogImage.toString());
+
 	}
 
 	public void setDirection(String direction) {
 		this.direction = direction;
+		System.out.println("direction");
 	}
 
 }

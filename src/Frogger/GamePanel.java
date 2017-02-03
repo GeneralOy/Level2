@@ -18,6 +18,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Timer timer;
 	public String collision;
 	public String collisionY;
+	public String frogDirectionPasser;
 	public Image Froggerbackground;
 	public Boolean isMoving;
 	public String keyTyped1;
@@ -193,6 +194,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		LLog1.update();
 		RLog2.update();
 		LLog2.update();
+		// Frog.directionFromPanel = Fr;
+		// setDirectiontoFrog(frogDirectionPasser);
 		Frog.update();
 		rtruck1.update();
 		rtruck2.update();
@@ -228,7 +231,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			frogDirection = "right";
 		}
 		System.out.println("key");
-		Frog.setDirection(frogDirection);
+		// Frog.setDirection(frogDirection);
 	}
 
 	public void keyPressed(KeyEvent e) {
@@ -240,6 +243,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		isMoving = false;
 		System.out.println("KR RUNNING");
 	}
+
+	/*
+	 * public void setDirectiontoFrog(String direction) {
+	 * //Frog.directionFromPanel = direction; }
+	 */
 
 	// VV X-Axis Collision VV//
 	// **public boolean collisionX(GameObject objectCollision) {

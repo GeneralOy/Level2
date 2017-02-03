@@ -8,7 +8,7 @@ public class FroggerKeyManager implements KeyListener {
 	static boolean right = false;
 	static boolean left = false;
 	static boolean up = false;
-	public String frogDirection;
+	public static String frogDirection = "up";
 
 	public FroggerKeyManager() {
 

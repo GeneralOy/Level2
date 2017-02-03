@@ -8,6 +8,7 @@ import javax.imageio.ImageIO;
 
 public class FroggerObject {
 	BufferedImage frogImage;
+	// String directionFromPanel;
 	/* To-Do List */
 	/** ->background set to frogger background */
 	/** create images of logs 1-4, trucks 1-4 */
@@ -21,7 +22,7 @@ public class FroggerObject {
 	int h;
 	boolean isMoving;
 	String imageDirection;
-	String direction = "left";
+	String direction = "up";
 	BufferedImage up;
 	BufferedImage right;
 	BufferedImage left;
@@ -29,6 +30,7 @@ public class FroggerObject {
 
 	public FroggerObject(int x, int y, int w, int h,
 			String direction/* int xspeed, int yspeed */) {
+
 		this.x = x;
 		this.y = y;
 		this.w = w;
@@ -58,32 +60,23 @@ public class FroggerObject {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		frogImage = up;
 	}
 
 	void update() {
-		setDirection(FroggerKeyManager.frogDirection);
+		// setDirection(directionFromPanel);
 		System.out.println("frog.update");
-		if (direction.equals("up")) {
-			frogImage = up;
-			System.out.println("up");
-			imageDirection = "up";
-		}
-		if (direction.equals("right")) {
-			frogImage = right;
-			System.out.println("right");
-			imageDirection = "right";
-		}
-		if (direction.equals("left")) {
-			frogImage = left;
-			System.out.println("Left");
-			imageDirection = "left";
-		}
-		if (direction.equals("down")) {
-			frogImage = down;
-			System.out.println("down");
-			imageDirection = "down";
-			System.out.println("DOWN");
-		}
+		/*
+		 * if (direction.equals("up")) { frogImage = up;
+		 * System.out.println("up"); imageDirection = "up"; } if
+		 * (direction.equals("right")) { frogImage = right;
+		 * System.out.println("right"); imageDirection = "right"; } if
+		 * (direction.equals("left")) { frogImage = left;
+		 * System.out.println("Left"); imageDirection = "left"; } if
+		 * (direction.equals("down")) { frogImage = down;
+		 * System.out.println("down"); imageDirection = "down";
+		 * System.out.println("DOWN"); }
+		 */
 		if (FroggerKeyManager.down) {
 			goDown();
 			// System.out.println("downUPDATE");
@@ -117,6 +110,7 @@ public class FroggerObject {
 	 * }
 	 */
 	public void goUp() {
+		frogImage = up;
 		// TODO Auto-generated method stub
 		System.out.println("up");
 		y -= 45;
@@ -124,18 +118,21 @@ public class FroggerObject {
 	}
 
 	public void goDown() {
+		frogImage = down;
 		// TODO Auto-generated method stub
 		System.out.println("down");
 		y += 45;
 	}
 
 	public void goLeft() {
+		frogImage = right;
 		// TODO Auto-generated method stub
 		System.out.println("left");
 		x -= 45;
 	}
 
 	public void goRight() {
+		frogImage = left;
 		// TODO Auto-generated method stub
 		System.out.println("right");
 		x += 45;
@@ -143,14 +140,15 @@ public class FroggerObject {
 
 	public void draw(Graphics g) {
 		g.drawImage(frogImage, x, y, null);
-		System.out.println("" + imageDirection + ";Frogimage = " + frogImage.toString());
+		// System.out.println("" + imageDirection + ";Frogimage = " +
+		// frogImage.toString());
 
 	}
 
-	public void setDirection(String direction) {
-		this.direction = direction;
-		System.out.println("direction");
-	}
+	/*
+	 * public void setDirection(String direction) { this.direction = direction;
+	 * System.out.println("direction"); }
+	 */
 
 }
 // TRASH CODE

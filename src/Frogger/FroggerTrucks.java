@@ -67,7 +67,7 @@ public class FroggerTrucks {
 
 	void draw(Graphics g) {
 		g.drawImage(logImage, x, y, null);
-		System.out.println("DRAWN");
+		// System.out.println("DRAWN");
 		// g.setColor(color);
 		// g.fillRect(x, y, width, height);
 	}

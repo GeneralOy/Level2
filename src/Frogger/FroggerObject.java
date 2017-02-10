@@ -15,12 +15,15 @@ public class FroggerObject {
 	/** create images of frog, *//* able to turn */
 	/** create movement-WASD w/ *//* switch to arrows */
 	/* create sensors for collision */
-
+	boolean isMovingUp;
+	boolean isMovingDown;
+	boolean isMovingLeft;
+	boolean isMovingRight;
 	int y;
 	int x;
 	int w;
 	int h;
-	boolean isMoving;
+
 	String imageDirection;
 	String direction = "up";
 	BufferedImage up;
@@ -77,23 +80,33 @@ public class FroggerObject {
 		 * System.out.println("down"); imageDirection = "down";
 		 * System.out.println("DOWN"); }
 		 */
+
 		if (FroggerKeyManager.down) {
-			goDown();
+			if (isMovingDown = true) {
+				goDown();
+			}
 			// System.out.println("downUPDATE");
 			FroggerKeyManager.down = false;
 		}
 		if (FroggerKeyManager.right) {
-			goRight();
+			if (isMovingRight = true) {
+				goRight();
+			}
 			FroggerKeyManager.right = false;
 		}
 		if (FroggerKeyManager.left) {
-			goLeft();
+			if (isMovingLeft = true) {
+				goLeft();
+			}
 			FroggerKeyManager.left = false;
 		}
 		if (FroggerKeyManager.up) {
-			goUp();
+			if (isMovingUp = true) {
+				goUp();
+			}
 			FroggerKeyManager.up = false;
 		}
+
 	}
 
 	/*

@@ -15,8 +15,9 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener {
+	public Boolean collision;
 	Timer timer;
-	public String collision;
+	// public String collision;
 	public String collisionY;
 	public String frogDirectionPasser;
 	public Image Froggerbackground;
@@ -203,6 +204,26 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		ltruck2.update();
 		repaint();
 		// THIS IS A THING.
+		if (Frog.x >= rtruck1.x && Frog.x <= rtruck1.x + 124) {
+			if (Frog.y >= 285 && Frog.y <= 325)
+				collision = true;
+			System.out.println("Collided");
+		}
+		if (Frog.x >= rtruck2.x && Frog.x <= rtruck2.x + 124) {
+			if (Frog.y >= 285 && Frog.y <= 325)
+				collision = true;
+			System.out.println("Collided");
+		}
+		if (Frog.x >= rtruck1.x && Frog.x <= rtruck1.x + 124) {
+			if (Frog.y >= 285 && Frog.y <= 325)
+				collision = true;
+			System.out.println("Collided");
+		}
+		if (Frog.x >= rtruck1.x && Frog.x <= rtruck1.x + 124) {
+			if (Frog.y >= 285 && Frog.y <= 325)
+				collision = true;
+			System.out.println("Collided");
+		}
 	}
 
 	public void keyTyped(KeyEvent e) {

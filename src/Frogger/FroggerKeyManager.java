@@ -11,7 +11,7 @@ public class FroggerKeyManager implements KeyListener {
 	public static String frogDirection = "up";
 
 	public FroggerKeyManager() {
-
+		System.out.println("stuff");
 	}
 
 	@Override

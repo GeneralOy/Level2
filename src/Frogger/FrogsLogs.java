@@ -62,4 +62,8 @@ public class FrogsLogs {
 		// g.setColor(color);
 		// g.fillRect(x, y, width, height);
 	}
+
+	public void checkCollision() {
+
+	}
 }

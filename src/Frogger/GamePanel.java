@@ -226,6 +226,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 				Frog.x += 6;
 			}
 		}
+		// ******************************************vvTHINGS TO WORK ON
+		// HEREvv******************************************//
 		if (Frog.x < 0) {
 			Frog.isMovingLeft = false;
 		}
@@ -251,6 +253,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		if (Frog.y < 556) {
 			Frog.isMovingDown = true;
 		}
+		// ******************************************^^THINGS TO WORK ON
+		// HERE^^******************************************//
 		RLog1.update();
 		LLog1.update();
 		RLog2.update();

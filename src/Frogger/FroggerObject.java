@@ -19,6 +19,7 @@ public class FroggerObject {
 	boolean isMovingDown;
 	boolean isMovingLeft;
 	boolean isMovingRight;
+	boolean isDead;
 	int y;
 	int x;
 	int w;
@@ -30,15 +31,20 @@ public class FroggerObject {
 	BufferedImage right;
 	BufferedImage left;
 	BufferedImage down;
+	BufferedImage runOverUp;
+	BufferedImage runOverDown;
+	BufferedImage runOverLeft;
+	BufferedImage runOverRight;
 
 	public FroggerObject(int x, int y, int w, int h,
 			String direction/* int xspeed, int yspeed */) {
-
+		isDead = false;
 		this.x = x;
 		this.y = y;
 		this.w = w;
 		this.h = h;
 		this.direction = direction;
+		// Frogger movement images start here
 		try {
 			up = ImageIO.read(this.getClass().getResourceAsStream("../Frogger.png"));
 
@@ -63,6 +69,32 @@ public class FroggerObject {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		// Frogger movement images end here
+		// runOver Frog images start here
+		try {
+			runOverUp = ImageIO.read(this.getClass().getResourceAsStream("../FroggerRunOverUp.png"));
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			runOverDown = ImageIO.read(this.getClass().getResourceAsStream("../FroggerRunOverDown.png"));
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			runOverRight = ImageIO.read(this.getClass().getResourceAsStream("../FroggerRunOverLeft.png"));
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			runOverLeft = ImageIO.read(this.getClass().getResourceAsStream("../FroggerRunOverRight.png"));
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		} ////////// runOver frog images ends here
 		frogImage = up;
 	}
 
@@ -80,7 +112,14 @@ public class FroggerObject {
 		 * System.out.println("down"); imageDirection = "down";
 		 * System.out.println("DOWN"); }
 		 */
-
+		/**
+		 * if (isDead = true) { System.out.println("IS DEAD"); if (frogImage ==
+		 * up) { frogImage = runOverUp; } if (frogImage == down) { frogImage =
+		 * runOverDown; } if (frogImage == right) { frogImage = runOverRight; }
+		 * (frogImage == left) { frogImage = runOverLeft; } }
+		 */
+		System.out.println("YAY");
+		// if (isDead = false) {
 		if (FroggerKeyManager.down) {
 			if (isMovingDown = true) {
 				goDown();
@@ -106,7 +145,7 @@ public class FroggerObject {
 			}
 			FroggerKeyManager.up = false;
 		}
-
+		// }
 	}
 
 	/*

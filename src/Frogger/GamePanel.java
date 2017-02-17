@@ -16,6 +16,7 @@ import javax.swing.Timer;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public Boolean collision;
+	public Boolean frogIsDead;
 	Timer timer;
 	// public String collision;
 	public String collisionY;
@@ -70,6 +71,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	int D = new Integer(KeyEvent.VK_D);
 
 	public GamePanel() {
+		frogIsDead = false;
 		frogDirection = "up";
 		// keyPressed.put(KeyEvent.VK_W, "W");
 		// keyPressed.put(KeyEvent.VK_A, "A");
@@ -119,7 +121,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		}
 
 		/** VV ASSORTED CODE VV **/
-		Frog = new FroggerObject(195, 195, 64, 64, "up");
+		Frog = new FroggerObject(520, 195, 64, 64, "up");
 		// System.out.println("asdf");
 		timer = new Timer(1000 / 60, this);
 		timer.start();
@@ -150,7 +152,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		 * 105, null); g.drawImage(logImage, log3, 150, null);
 		 * g.drawImage(logImage, log4, 195, null);
 		 */
+		// if (frogIsDead = false) {
 		Frog.draw(g);
+		// }
 		/*
 		 * g.drawImage(Rtruck, rTruck1, frogY, null); g.drawImage(Rtruck,
 		 * rTruck2, frogY, null); g.drawImage(Ltruck, lTruck1, frogY, null);
@@ -164,6 +168,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		ltruck1.draw(g);
 		ltruck2.draw(g);
 		System.out.println("DRAW");
+		if (frogIsDead) {
+			System.out.println("Frog is dead");
+		}
 	}
 
 	// VV Frog Movement VV//
@@ -176,54 +183,73 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			if (Frog.y >= 285 && Frog.y <= 325) {
 				collision = true;
 				System.out.println("Collided1");
+				Frog.isDead = true;
+				frogIsDead = true;
 			}
 		}
 		if (Frog.x >= rtruck2.x && Frog.x <= rtruck2.x + 124) {
 			if (Frog.y >= 375 && Frog.y <= 415) {
 				collision = true;
 				System.out.println("Collided2");
+				Frog.isDead = true;
+				frogIsDead = true;
 			}
 		}
 		if (Frog.x >= ltruck1.x && Frog.x <= ltruck1.x + 180) {
 			if (Frog.y >= 325 && Frog.y <= 370) {
 				collision = true;
 				System.out.println("Collided3");
-
+				Frog.isDead = true;
+				frogIsDead = true;
 			}
 		}
 		if (Frog.x >= ltruck2.x && Frog.x <= ltruck2.x + 180) {
 			if (Frog.y >= 415 && Frog.y <= 460) {
 				collision = true;
 				System.out.println("Collided4");
+				Frog.isDead = true;
+				frogIsDead = true;
 			}
 		}
 		// Log collision
-		if (Frog.x >= RLog1.x && Frog.x <= RLog1.x + 176) {
-			if (Frog.y >= 60 && Frog.y <= 100) {
+		if (Frog.y >= 60 && Frog.y <= 100) {
+			if (Frog.x >= RLog1.x && Frog.x <= RLog1.x + 176) {
 				collision = true;
 				System.out.println("Log1");
 				Frog.x += 8;
+			} else {
+				// Frog.isDead = true;
+				// frogIsDead = true;
 			}
 		}
-		if (Frog.x >= RLog2.x && Frog.x <= RLog2.x + 176) {
-			if (Frog.y >= 105 && Frog.y <= 145) {
+		if (Frog.y >= 105 && Frog.y <= 145) {
+			if (Frog.x >= RLog2.x && Frog.x <= RLog2.x + 176) {
 				collision = true;
 				System.out.println("Log2");
 				Frog.x += 7;
+			} else {
+				// .isDead = true;
+				// frogIsDead = true;
 			}
 		}
-		if (Frog.x >= LLog1.x && Frog.x <= LLog1.x + 176) {
-			if (Frog.y >= 150 && Frog.y <= 190) {
+		if (Frog.y >= 150 && Frog.y <= 190) {
+			if (Frog.x >= LLog1.x && Frog.x <= LLog1.x + 176) {
 				collision = true;
 				System.out.println("Log3");
 				Frog.x -= 8;
+			} else {
+				// Frog.isDead = true;
+				// frogIsDead = true;
 			}
 		}
-		if (Frog.x >= RLog3.x && Frog.x <= RLog3.x + 176) {
-			if (Frog.y >= 195 && Frog.y <= 235) {
+		if (Frog.y >= 195 && Frog.y <= 235) {
+			if (Frog.x >= RLog3.x && Frog.x <= RLog3.x + 176) {
 				collision = true;
 				System.out.println("Log4");
 				Frog.x += 6;
+			} else {
+				// Frog.isDead = true;
+				// frogIsDead = true;
 			}
 		}
 		// ******************************************vvTHINGS TO WORK ON

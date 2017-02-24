@@ -121,7 +121,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		}
 
 		/** VV ASSORTED CODE VV **/
-		Frog = new FroggerObject(520, 195, 64, 64, "up");
+		Frog = new FroggerObject(190, 510, 64, 64, "up");
 		// System.out.println("asdf");
 		timer = new Timer(1000 / 60, this);
 		timer.start();
@@ -218,8 +218,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 				System.out.println("Log1");
 				Frog.x += 8;
 			} else {
-				// Frog.isDead = true;
-				// frogIsDead = true;
+				Frog.isDead = true;
+				Frog.isDead = true;
 			}
 		}
 		if (Frog.y >= 105 && Frog.y <= 145) {
@@ -228,8 +228,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 				System.out.println("Log2");
 				Frog.x += 7;
 			} else {
-				// .isDead = true;
-				// frogIsDead = true;
+				Frog.Drown = true;
+				Frog.isDead = true;
 			}
 		}
 		if (Frog.y >= 150 && Frog.y <= 190) {
@@ -238,8 +238,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 				System.out.println("Log3");
 				Frog.x -= 8;
 			} else {
-				// Frog.isDead = true;
-				// frogIsDead = true;
+				Frog.Drown = true;
+				Frog.isDead = true;
 			}
 		}
 		if (Frog.y >= 195 && Frog.y <= 235) {
@@ -248,8 +248,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 				System.out.println("Log4");
 				Frog.x += 6;
 			} else {
-				// Frog.isDead = true;
-				// frogIsDead = true;
+				Frog.Drown = true;
+				Frog.isDead = true;
 			}
 		}
 		// ******************************************vvTHINGS TO WORK ON

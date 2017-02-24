@@ -3,6 +3,7 @@ package Frogger;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Timer;
 
 import javax.imageio.ImageIO;
 
@@ -12,19 +13,20 @@ public class FroggerObject {
 	/* To-Do List */
 	/** ->background set to frogger background */
 	/** create images of logs 1-4, trucks 1-4 */
-	/** create images of frog, *//* able to turn */
+	/** create images of frog, able to turn */
 	/** create movement-WASD w/ *//* switch to arrows */
-	/* create sensors for collision */
+	/** create sensors for collision */
 	boolean isMovingUp;
 	boolean isMovingDown;
 	boolean isMovingLeft;
 	boolean isMovingRight;
 	boolean isDead;
+	boolean Drown;
 	int y;
 	int x;
 	int w;
 	int h;
-
+	int Timer;
 	String imageDirection;
 	String direction = "up";
 	BufferedImage up;
@@ -35,9 +37,17 @@ public class FroggerObject {
 	BufferedImage runOverDown;
 	BufferedImage runOverLeft;
 	BufferedImage runOverRight;
-
+	BufferedImage Splash1;
+	BufferedImage Splash2;
+	BufferedImage Splash3;
+	BufferedImage Splash4;
+	BufferedImage Splash5;
+	BufferedImage Splash6;
+	BufferedImage Splash7;
+	//Timer timer1;
 	public FroggerObject(int x, int y, int w, int h,
 			String direction/* int xspeed, int yspeed */) {
+		
 		isDead = false;
 		this.x = x;
 		this.y = y;
@@ -95,10 +105,54 @@ public class FroggerObject {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} ////////// runOver frog images ends here
+			// SPLASHvv
+		try {
+			Splash1 = ImageIO.read(this.getClass().getResourceAsStream("../splash_stage_1.png"));
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			Splash2 = ImageIO.read(this.getClass().getResourceAsStream("../splash_stage_2.png"));
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			Splash3 = ImageIO.read(this.getClass().getResourceAsStream("../splash_stage_3.png"));
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			Splash4 = ImageIO.read(this.getClass().getResourceAsStream("../splash_stage_4.png"));
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			Splash5 = ImageIO.read(this.getClass().getResourceAsStream("../splash_stage_5.png"));
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			Splash6 = ImageIO.read(this.getClass().getResourceAsStream("../splash_stage_6.png"));
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			Splash7 = ImageIO.read(this.getClass().getResourceAsStream("../splash_stage_7.png"));
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		// SPLASH^^
 		frogImage = up;
 	}
 
-	void update() {
+	void update()  {
 		// setDirection(directionFromPanel);
 		System.out.println("frog.update");
 		/*
@@ -112,40 +166,75 @@ public class FroggerObject {
 		 * System.out.println("down"); imageDirection = "down";
 		 * System.out.println("DOWN"); }
 		 */
-		/**
-		 * if (isDead = true) { System.out.println("IS DEAD"); if (frogImage ==
-		 * up) { frogImage = runOverUp; } if (frogImage == down) { frogImage =
-		 * runOverDown; } if (frogImage == right) { frogImage = runOverRight; }
-		 * (frogImage == left) { frogImage = runOverLeft; } }
-		 */
+
+		if (isDead == true) {
+			if (Drown == false) {
+				System.out.println("IS DEAD");
+				if (frogImage == up) {
+					frogImage = runOverUp;
+				}
+				if (frogImage == down) {
+					frogImage = runOverDown;
+				}
+				if (frogImage == right) {
+					frogImage = runOverRight;
+				}
+				if (frogImage == left) {
+					frogImage = runOverLeft;
+				}
+			} else if (Drown == true) {
+				
+				/**for (int i = 0; i < 140000; i++) {
+					if(i < 20000){
+						frogImage = Splash1;
+					}if(i < 40000 || i > 19999){
+						frogImage = Splash2;
+					}if(i < 60000 || i > 39999){
+						frogImage = Splash3;
+					}if(i < 80000 || i > 59999){
+						frogImage = Splash4;
+					}if(i < 100000 || i > 79999){
+						frogImage = Splash5;
+					}if(i < 120000 || i > 99999){
+						frogImage = Splash6;
+					}if(i < 140000 || i > 119999){
+						frogImage = Splash7;
+					}if(i >= 140000){
+						frogImage = null;
+					}
+				}*/
+			}
+
+		}
+
 		System.out.println("YAY");
-		// if (isDead = false) {
-		if (FroggerKeyManager.down) {
-			if (isMovingDown = true) {
-				goDown();
+		if (isDead == false) {
+			if (FroggerKeyManager.down) {
+				if (isMovingDown = true) {
+					goDown();
+				}
+				// System.out.println("downUPDATE");
+				FroggerKeyManager.down = false;
 			}
-			// System.out.println("downUPDATE");
-			FroggerKeyManager.down = false;
-		}
-		if (FroggerKeyManager.right) {
-			if (isMovingRight = true) {
-				goRight();
+			if (FroggerKeyManager.right) {
+				if (isMovingRight = true) {
+					goRight();
+				}
+				FroggerKeyManager.right = false;
 			}
-			FroggerKeyManager.right = false;
-		}
-		if (FroggerKeyManager.left) {
-			if (isMovingLeft = true) {
-				goLeft();
+			if (FroggerKeyManager.left) {
+				if (isMovingLeft = true) {
+					goLeft();
+				}
+				FroggerKeyManager.left = false;
 			}
-			FroggerKeyManager.left = false;
-		}
-		if (FroggerKeyManager.up) {
-			if (isMovingUp = true) {
-				goUp();
+			if (FroggerKeyManager.up) {
+				if (isMovingUp = true) {
+					goUp();
+				}
+				FroggerKeyManager.up = false;
 			}
-			FroggerKeyManager.up = false;
 		}
-		// }
 	}
 
 	/*
@@ -166,7 +255,6 @@ public class FroggerObject {
 		// TODO Auto-generated method stub
 		System.out.println("up");
 		y -= 45;
-
 	}
 
 	public void goDown() {

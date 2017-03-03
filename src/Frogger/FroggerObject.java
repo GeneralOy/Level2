@@ -177,10 +177,10 @@ public class FroggerObject {
 					frogImage = runOverDown;
 				}
 				if (frogImage == right) {
-					frogImage = runOverRight;
+					frogImage = runOverLeft;
 				}
 				if (frogImage == left) {
-					frogImage = runOverLeft;
+					frogImage = runOverRight;
 				}
 			} else if (Drown == true) {
 				

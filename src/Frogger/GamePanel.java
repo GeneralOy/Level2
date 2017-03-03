@@ -57,6 +57,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	FroggerTrucks rtruck2;
 	FroggerTrucks ltruck1;
 	FroggerTrucks ltruck2;
+	BufferedImage gameOverR;
+	BufferedImage gameOverB;
 	BufferedImage background;
 	BufferedImage LTruck1Image;
 	BufferedImage frogImage;
@@ -97,6 +99,18 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 		try {
 			background = ImageIO.read(this.getClass().getResourceAsStream("../Frogger Background.png"));
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			gameOverR = ImageIO.read(this.getClass().getResourceAsStream("../GameOverRedV2.png"));
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			gameOverB = ImageIO.read(this.getClass().getResourceAsStream("../GameOverBlackV2.png"));
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -170,6 +184,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		System.out.println("DRAW");
 		if (frogIsDead) {
 			System.out.println("Frog is dead");
+			g.drawImage(gameOverR, 200, 200, null);
 		}
 	}
 
@@ -325,13 +340,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	public void keyPressed(KeyEvent e) {
-		System.out.println("KP RUNNING");
-		isMoving = true;
+		//System.out.println("KP RUNNING");
+		//isMoving = true;
 	}
 
 	public void keyReleased(KeyEvent e) {
-		isMoving = false;
-		System.out.println("KR RUNNING");
+		// = false;
+		//System.out.println("KR RUNNING");
 	}
 
 	/*

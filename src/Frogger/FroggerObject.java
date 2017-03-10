@@ -3,6 +3,7 @@ package Frogger;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Random;
 import java.util.Timer;
 
 import javax.imageio.ImageIO;
@@ -16,6 +17,8 @@ public class FroggerObject {
 	/** create images of frog, able to turn */
 	/** create movement-WASD w/ *//* switch to arrows */
 	/** create sensors for collision */
+	//public Boolean SplashOver;
+	public int SplashStage;
 	boolean isMovingUp;
 	boolean isMovingDown;
 	boolean isMovingLeft;
@@ -26,7 +29,6 @@ public class FroggerObject {
 	int x;
 	int w;
 	int h;
-	int Timer;
 	String imageDirection;
 	String direction = "up";
 	BufferedImage up;
@@ -44,10 +46,10 @@ public class FroggerObject {
 	BufferedImage Splash5;
 	BufferedImage Splash6;
 	BufferedImage Splash7;
-	//Timer timer1;
+	Timer timer1;
 	public FroggerObject(int x, int y, int w, int h,
 			String direction/* int xspeed, int yspeed */) {
-		
+		SplashStage = 0;
 		isDead = false;
 		this.x = x;
 		this.y = y;
@@ -183,7 +185,24 @@ public class FroggerObject {
 					frogImage = runOverRight;
 				}
 			} else if (Drown == true) {
-				
+				if(SplashStage == 3){
+					frogImage = Splash1;
+				}else if(SplashStage == 4){
+					frogImage = Splash2;
+				}else if(SplashStage == 5){
+					frogImage = Splash3;
+				}else if(SplashStage == 6){
+					frogImage = Splash4;
+				}else if(SplashStage == 7){
+					frogImage = Splash5;
+				}else if(SplashStage == 8){
+					frogImage = Splash6;
+				}else if(SplashStage == 9){
+					frogImage = Splash7;
+				}else if(SplashStage >= 10){
+					frogImage = null;
+					//SplashOver = true;
+				}
 				/**for (int i = 0; i < 140000; i++) {
 					if(i < 20000){
 						frogImage = Splash1;

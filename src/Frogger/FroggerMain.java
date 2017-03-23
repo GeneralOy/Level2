@@ -15,8 +15,8 @@ public class FroggerMain {
 
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
-		FroggerMain froggerMain = new FroggerMain(516, 576);
-	}
+		FroggerMain froggerMain = new FroggerMain(620, 860);
+	}//516, 560 //56, 86
 
 	public FroggerMain(int width, int height) {
 

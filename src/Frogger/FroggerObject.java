@@ -59,92 +59,19 @@ public class FroggerObject {
 		// Frogger movement images start here
 		try {
 			up = ImageIO.read(this.getClass().getResourceAsStream("../Frogger.png"));
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		try {
 			right = ImageIO.read(this.getClass().getResourceAsStream("../Frogger 2.png"));
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		try {
 			left = ImageIO.read(this.getClass().getResourceAsStream("../Frogger 3.png"));
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		try {
 			down = ImageIO.read(this.getClass().getResourceAsStream("../Frogger 4.png"));
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		// Frogger movement images end here
-		// runOver Frog images start here
-		try {
 			runOverUp = ImageIO.read(this.getClass().getResourceAsStream("../FroggerRunOverUp.png"));
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		try {
 			runOverDown = ImageIO.read(this.getClass().getResourceAsStream("../FroggerRunOverDown.png"));
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		try {
 			runOverRight = ImageIO.read(this.getClass().getResourceAsStream("../FroggerRunOverLeft.png"));
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		try {
 			runOverLeft = ImageIO.read(this.getClass().getResourceAsStream("../FroggerRunOverRight.png"));
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		} ////////// runOver frog images ends here
-			// SPLASHvv
-		try {
 			Splash1 = ImageIO.read(this.getClass().getResourceAsStream("../splash_stage_1.png"));
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		try {
 			Splash2 = ImageIO.read(this.getClass().getResourceAsStream("../splash_stage_2.png"));
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		try {
 			Splash3 = ImageIO.read(this.getClass().getResourceAsStream("../splash_stage_3.png"));
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		try {
 			Splash4 = ImageIO.read(this.getClass().getResourceAsStream("../splash_stage_4.png"));
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		try {
 			Splash5 = ImageIO.read(this.getClass().getResourceAsStream("../splash_stage_5.png"));
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		try {
 			Splash6 = ImageIO.read(this.getClass().getResourceAsStream("../splash_stage_6.png"));
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		try {
 			Splash7 = ImageIO.read(this.getClass().getResourceAsStream("../splash_stage_7.png"));
 
 		} catch (IOException e) {

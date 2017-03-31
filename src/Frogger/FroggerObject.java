@@ -17,7 +17,7 @@ public class FroggerObject {
 	/** create images of frog, able to turn */
 	/** create movement-WASD w/ *//* switch to arrows */
 	/** create sensors for collision */
-	//public Boolean SplashOver;
+	// public Boolean SplashOver;
 	public int SplashStage;
 	boolean isMovingUp;
 	boolean isMovingDown;
@@ -47,6 +47,7 @@ public class FroggerObject {
 	BufferedImage Splash6;
 	BufferedImage Splash7;
 	Timer timer1;
+
 	public FroggerObject(int x, int y, int w, int h,
 			String direction/* int xspeed, int yspeed */) {
 		SplashStage = 0;
@@ -81,7 +82,7 @@ public class FroggerObject {
 		frogImage = up;
 	}
 
-	void update()  {
+	void update() {
 		// setDirection(directionFromPanel);
 		System.out.println("frog.update");
 		/*
@@ -112,43 +113,33 @@ public class FroggerObject {
 					frogImage = runOverRight;
 				}
 			} else if (Drown == true) {
-				if(SplashStage == 3){
+				if (SplashStage == 3) {
 					frogImage = Splash1;
-				}else if(SplashStage == 4){
+				} else if (SplashStage == 4) {
 					frogImage = Splash2;
-				}else if(SplashStage == 5){
+				} else if (SplashStage == 5) {
 					frogImage = Splash3;
-				}else if(SplashStage == 6){
+				} else if (SplashStage == 6) {
 					frogImage = Splash4;
-				}else if(SplashStage == 7){
+				} else if (SplashStage == 7) {
 					frogImage = Splash5;
-				}else if(SplashStage == 8){
+				} else if (SplashStage == 8) {
 					frogImage = Splash6;
-				}else if(SplashStage == 9){
+				} else if (SplashStage == 9) {
 					frogImage = Splash7;
-				}else if(SplashStage >= 10){
+				} else if (SplashStage >= 10) {
 					frogImage = null;
-					//SplashOver = true;
+					// SplashOver = true;
 				}
-				/**for (int i = 0; i < 140000; i++) {
-					if(i < 20000){
-						frogImage = Splash1;
-					}if(i < 40000 || i > 19999){
-						frogImage = Splash2;
-					}if(i < 60000 || i > 39999){
-						frogImage = Splash3;
-					}if(i < 80000 || i > 59999){
-						frogImage = Splash4;
-					}if(i < 100000 || i > 79999){
-						frogImage = Splash5;
-					}if(i < 120000 || i > 99999){
-						frogImage = Splash6;
-					}if(i < 140000 || i > 119999){
-						frogImage = Splash7;
-					}if(i >= 140000){
-						frogImage = null;
-					}
-				}*/
+				/**
+				 * for (int i = 0; i < 140000; i++) { if(i < 20000){ frogImage =
+				 * Splash1; }if(i < 40000 || i > 19999){ frogImage = Splash2;
+				 * }if(i < 60000 || i > 39999){ frogImage = Splash3; }if(i <
+				 * 80000 || i > 59999){ frogImage = Splash4; }if(i < 100000 || i
+				 * > 79999){ frogImage = Splash5; }if(i < 120000 || i > 99999){
+				 * frogImage = Splash6; }if(i < 140000 || i > 119999){ frogImage
+				 * = Splash7; }if(i >= 140000){ frogImage = null; } }
+				 */
 			}
 
 		}
@@ -215,6 +206,13 @@ public class FroggerObject {
 		// TODO Auto-generated method stub
 		System.out.println("left");
 		x -= 45;
+		if (y <= 539) {
+			if (x <= 0 + 50) {
+				x += 45;
+			}
+		} else if (x <= 25) {
+			x = 510;
+		}
 	}
 
 	public void goRight() {
@@ -222,6 +220,13 @@ public class FroggerObject {
 		// TODO Auto-generated method stub
 		System.out.println("right");
 		x += 45;
+		if (y <= 539) {
+			if (x >= 516 + 5) {
+				x -= 45;
+			}
+		} else if (x >= 511) {
+			x =  60;
+		}
 	}
 
 	public void draw(Graphics g) {

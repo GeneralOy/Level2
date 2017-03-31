@@ -90,14 +90,14 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		// keyPressed.put(KeyEvent.VK_S, "S");
 		// keyPressed.put(KeyEvent.VK_D, "D");
 
-		RLog1 = new FrogsLogs(log1, 60, "rlog", 9, "log");
-		RLog2 = new FrogsLogs(log2, 105, "rlog", 7, "log");
-		LLog1 = new FrogsLogs(log3, 150, "llog", -8, "log");
-		RLog3 = new FrogsLogs(log4, 195, "rlog", 6, "log");
-		rtruck1 = new FroggerTrucks(rTruck1, 285, "rtruck", 10, "rtruck");
-		rtruck2 = new FroggerTrucks(rTruck2, 375, "rtruck", 8, "rtruck");
-		ltruck1 = new FroggerTrucks(lTruck1, 325, "ltruck", -7, "ltruck");
-		ltruck2 = new FroggerTrucks(lTruck2, 415, "ltruck", -5, "ltruck");
+		RLog1 = new FrogsLogs(log1 + 50, 60 + 76, "rlog", 9, "log");
+		RLog2 = new FrogsLogs(log2 + 50, 105 + 76, "rlog", 7, "log");
+		LLog1 = new FrogsLogs(log3 + 50, 150 + 76, "llog", -8, "log");
+		RLog3 = new FrogsLogs(log4 + 50, 195 + 76, "rlog", 6, "log");
+		rtruck1 = new FroggerTrucks(rTruck1 + 50, 285 + 75, "rtruck", 10, "rtruck");
+		rtruck2 = new FroggerTrucks(rTruck2 + 50, 375 + 75, "rtruck", 8, "rtruck");
+		ltruck1 = new FroggerTrucks(lTruck1 + 50, 325 + 75, "ltruck", -7, "ltruck");
+		ltruck2 = new FroggerTrucks(lTruck2 + 50, 415 + 75, "ltruck", -5, "ltruck");
 
 		/** VV Image Prep VV **/
 		/**
@@ -120,7 +120,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			e.printStackTrace();
 		}
 		/** VV ASSORTED CODE VV **/
-		Frog = new FroggerObject(190, 510, 64, 64, "up");
+		Frog = new FroggerObject(190 + 50, 510 + 30, 64, 64, "up");
 		// System.out.println("asdf");
 		timer = new Timer(1000 / 60, this);
 		timer.start();
@@ -178,14 +178,15 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		// g.drawImage(frogImage, frogX, frogY, null);
 		// FullLog1.update();
 		System.out.println("DRAW");
-		if (frogIsDead) {
+		if (gameWinThing) {
+			System.out.println("YOU WIN!");
+			g.drawImage(WinScreen1, 8 + 50, 110 + 75, null);
+		} else if (frogIsDead) {
 			if (gameOverThing) {
 				System.out.println("Frog is dead");
-				g.drawImage(gameOverR, 110, 110, null);
+				g.drawImage(gameOverR, 110 + 50, 110 + 75, null);
 			}
-		} else if (gameWinThing) {
-			System.out.println("YOU WIN!");
-			g.drawImage(WinScreen1, 5, 110, null);
+			
 		}
 		g.drawImage(ArcadeMachineBackground, 0, 0, null);
 		System.out.println("" + ArcadeMachineBackground.getWidth());
@@ -197,15 +198,15 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		// String PerformedAction =
 
 		// THIS IS A THING.
-		if (Frog.y <= 60) {
+		if (Frog.y <= 55 + 75) {
 			System.out.println("You win!");
 			gameWinThing = true;
 		} else {
 		}
-		if (Frog.x >= 550) {
+		if (Frog.x >= 550 + 50) {
 		} else {
 			if (Frog.x >= rtruck1.x && Frog.x <= rtruck1.x + 124) {
-				if (Frog.y >= 285 && Frog.y <= 325) {
+				if (Frog.y >= 285  + 75 && Frog.y <= 325  + 75) {
 					collision = true;
 					System.out.println("Collided1");
 					Frog.isDead = true;
@@ -214,7 +215,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 				}
 			}
 			if (Frog.x >= rtruck2.x && Frog.x <= rtruck2.x + 124) {
-				if (Frog.y >= 375 && Frog.y <= 415) {
+				if (Frog.y >= 375  + 75 && Frog.y <= 415  + 75) {
 					collision = true;
 					System.out.println("Collided2");
 					Frog.isDead = true;
@@ -223,7 +224,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 				}
 			}
 			if (Frog.x >= ltruck1.x && Frog.x <= ltruck1.x + 180) {
-				if (Frog.y >= 325 && Frog.y <= 370) {
+				if (Frog.y >= 325  + 75 && Frog.y <= 370  + 75) {
 					collision = true;
 					System.out.println("Collided3");
 					Frog.isDead = true;
@@ -232,7 +233,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 				}
 			}
 			if (Frog.x >= ltruck2.x && Frog.x <= ltruck2.x + 180) {
-				if (Frog.y >= 415 && Frog.y <= 460) {
+				if (Frog.y >= 415  + 75 && Frog.y <= 460  + 75) {
 					collision = true;
 					System.out.println("Collided4");
 					Frog.isDead = true;
@@ -259,7 +260,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 					timer.setDelay(1000 / 60);
 				}
 			} else {
-				if (Frog.y >= 60 && Frog.y <= 100) {
+				if (Frog.y >= 60 + 75 && Frog.y <= 100 + 75) {
 					if (Frog.x >= RLog1.x && Frog.x <= RLog1.x + 176) {
 						collision = true;
 						System.out.println("Log1");
@@ -271,7 +272,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 					}
 				}
-				if (Frog.y >= 105 && Frog.y <= 145) {
+				if (Frog.y >= 105 + 75 && Frog.y <= 145 + 75) {
 					if (Frog.x >= RLog2.x && Frog.x <= RLog2.x + 176) {
 						collision = true;
 						System.out.println("Log2");
@@ -282,7 +283,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 						Frog.isDead = true;
 					}
 				}
-				if (Frog.y >= 150 && Frog.y <= 190) {
+				if (Frog.y >= 150 + 75 && Frog.y <= 190 + 75) {
 					if (Frog.x >= LLog1.x && Frog.x <= LLog1.x + 176) {
 						collision = true;
 						System.out.println("Log3");
@@ -293,7 +294,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 						Frog.isDead = true;
 					}
 				}
-				if (Frog.y >= 195 && Frog.y <= 235) {
+				if (Frog.y >= 195 + 75 && Frog.y <= 235 + 75) {
 					if (Frog.x >= RLog3.x && Frog.x <= RLog3.x + 176) {
 						collision = true;
 						System.out.println("Log4");
@@ -308,29 +309,29 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		}
 		// ******************************************vvTHINGS TO WORK ON
 		// HEREvv******************************************//
-		if (Frog.x < 0) {
+		if (Frog.x < 0 + 50) {
 			Frog.isMovingLeft = false;
 		}
-		if (Frog.x > 516) {
+		if (Frog.x > 516 + 50) {
 			Frog.isMovingRight = false;
 			System.out.println("516 +");
 		}
-		if (Frog.x > 0) {
+		if (Frog.x > 0 + 50) {
 			Frog.isMovingLeft = true;
 		}
-		if (Frog.x < 516) {
+		if (Frog.x < 516 + 50) {
 			Frog.isMovingRight = true;
 		}
-		if (Frog.y < 0) {
+		if (Frog.y < 0 + 75) {
 			Frog.isMovingUp = false;
 		}
-		if (Frog.y > 556) {
+		if (Frog.y > 556 + 75) {
 			Frog.isMovingDown = false;
 		}
-		if (Frog.y > 0) {
+		if (Frog.y > 0 + 75) {
 			Frog.isMovingUp = true;
 		}
-		if (Frog.y < 556) {
+		if (Frog.y < 556 + 75) {
 			Frog.isMovingDown = true;
 		}
 		// ******************************************^^THINGS TO WORK ON

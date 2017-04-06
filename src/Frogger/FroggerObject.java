@@ -191,7 +191,9 @@ public class FroggerObject {
 		frogImage = up;
 		// TODO Auto-generated method stub
 		System.out.println("up");
+		if(y >= 0){
 		y -= 45;
+		}
 	}
 
 	public void goDown() {
@@ -206,11 +208,15 @@ public class FroggerObject {
 		// TODO Auto-generated method stub
 		System.out.println("left");
 		x -= 45;
-		if (y <= 539) {
+		if ((y <= 539 && y >= 285 + 75) /**|| (y <= 330 + 75 && y >= 55 + 75)*/) {
 			if (x <= 0 + 50) {
 				x += 45;
 			}
-		} else if (x <= 25) {
+		//} else if() {
+		}else if(y >= 330 + 75 && y <= 55 + 75) {
+			System.out.println("River");
+		}else if (x <= 25) {
+		
 			x = 510;
 		}
 	}
@@ -220,10 +226,12 @@ public class FroggerObject {
 		// TODO Auto-generated method stub
 		System.out.println("right");
 		x += 45;
-		if (y <= 539) {
+		if ((y <= 539 && y>= 285+75) /**|| (y <= 330 + 75 && y >= 55 + 75)*/) {
 			if (x >= 516 + 5) {
 				x -= 45;
 			}
+		}else if(y <= 330 + 75 && y >= 55 + 75) {
+			System.out.println("River");
 		} else if (x >= 511) {
 			x =  60;
 		}

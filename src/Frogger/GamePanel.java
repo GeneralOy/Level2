@@ -203,7 +203,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			gameWinThing = true;
 		} else {
 		}
-		if (Frog.x >= 550 + 50) {
+		if (Frog.y >= 550 + 50) {
 		} else {
 			if (Frog.x >= rtruck1.x && Frog.x <= rtruck1.x + 124) {
 				if (Frog.y >= 285  + 75 && Frog.y <= 325  + 75) {
@@ -292,6 +292,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 						Frog.Drown = true;
 						frogIsDead = true;
 						Frog.isDead = true;
+						for (int i = 0; i < 5000; i++) {
+							System.out.println("Ded log1");
+						}
+						System.out.println("Ded log1");
 					}
 				}
 				if (Frog.y >= 195 + 75 && Frog.y <= 235 + 75) {
@@ -309,31 +313,33 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		}
 		// ******************************************vvTHINGS TO WORK ON
 		// HEREvv******************************************//
-		if (Frog.x < 0 + 50) {
-			Frog.isMovingLeft = false;
-		}
-		if (Frog.x > 516 + 50) {
-			Frog.isMovingRight = false;
-			System.out.println("516 +");
-		}
-		if (Frog.x > 0 + 50) {
-			Frog.isMovingLeft = true;
-		}
-		if (Frog.x < 516 + 50) {
-			Frog.isMovingRight = true;
-		}
-		if (Frog.y < 0 + 75) {
-			Frog.isMovingUp = false;
-		}
-		if (Frog.y > 556 + 75) {
-			Frog.isMovingDown = false;
-		}
-		if (Frog.y > 0 + 75) {
-			Frog.isMovingUp = true;
-		}
-		if (Frog.y < 556 + 75) {
-			Frog.isMovingDown = true;
-		}
+		
+		//if (Frog.x < 0 + 50) {
+		//	Frog.isMovingLeft = false;
+		//}
+		//if (Frog.x > 516 + 50) {
+		//	Frog.isMovingRight = false;
+		//	System.out.println("516 +");
+		//}
+		//if (Frog.x > 0 + 50) {
+		//	Frog.isMovingLeft = true;
+		//}
+		//if (Frog.x < 516 + 50) {
+		//	Frog.isMovingRight = true;
+		//}
+		//
+		//if (Frog.y < 0 + 75) {
+		//	Frog.isMovingUp = false;
+		//}
+		//if (Frog.y > 556 + 75) {
+		//	Frog.isMovingDown = false;
+		//}
+		//if (Frog.y > 0 + 75) {
+		//	Frog.isMovingUp = true;
+		//}
+		//if (Frog.y < 556 + 75) {
+		//	Frog.isMovingDown = true;
+		//}
 		// ******************************************^^THINGS TO WORK ON
 		// HERE^^******************************************//
 

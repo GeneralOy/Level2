@@ -24,12 +24,9 @@ public class FroggerMain {
 		this.height = height;
 		mainFroggerPanel = new GamePanel();
 		KeyManager = new FroggerKeyManager();
-		// mainFrame.addKeyListener(mainFroggerPanel);
 		mainFrame.addKeyListener(KeyManager);
-		// System.out.println("working1");
 		mainFrame.add(mainFroggerPanel);
 		mainFrame.setSize(width, height);
-		// mainFroggerPanel.frogDirectionPasser = KeyManager.frogDirection;
 		System.out.println(Keymanagerthing);
 		mainFrame.setVisible(true);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

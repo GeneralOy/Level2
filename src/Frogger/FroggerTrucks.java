@@ -12,12 +12,11 @@ public class FroggerTrucks {
 	public int x;
 	public int fps;
 	int xspeed;
-	// int ySpeed;
 	String name;
 	public BufferedImage logImage;
 	String image;
 
-	public FroggerTrucks(int x, /* int xspeed, int ySpeed */ int y, String name, int xspeed, String image) {
+	public FroggerTrucks(int x,  int y, String name, int xspeed, String image) {
 		this.x = x;
 		this.y = y;
 		this.name = name;
@@ -39,12 +38,9 @@ public class FroggerTrucks {
 				e.printStackTrace();
 			}
 		}
-		// x->700, 750, 800
-		// y->300, 350, 400
 	}
 
 	void update() {
-		//System.out.println("" + this.fps);
 		if (this.fps >= 60) {
 			this.fps -= 59;
 		} else {
@@ -67,8 +63,5 @@ public class FroggerTrucks {
 
 	void draw(Graphics g) {
 		g.drawImage(logImage, x, y, null);
-		// System.out.println("DRAWN");
-		// g.setColor(color);
-		// g.fillRect(x, y, width, height);
 	}
 }

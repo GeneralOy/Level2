@@ -86,10 +86,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		frogIsDead = false;
 		gameWinThing = false;
 		frogDirection = "up";
-		// keyPressed.put(KeyEvent.VK_W, "W");
-		// keyPressed.put(KeyEvent.VK_A, "A");
-		// keyPressed.put(KeyEvent.VK_S, "S");
-		// keyPressed.put(KeyEvent.VK_D, "D");
 
 		RLog1 = new FrogsLogs(log1 + 50, 60 + 76, "rlog", 9, "log");
 		RLog2 = new FrogsLogs(log2 + 50, 105 + 76, "rlog", 7, "log");
@@ -101,13 +97,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		ltruck2 = new FroggerTrucks(lTruck2 + 50, 415 + 75, "ltruck", -5, "ltruck");
 
 		/** VV Image Prep VV **/
-		/**
-		 * try { frogImage =
-		 * ImageIO.read(this.getClass().getResourceAsStream("../Frogger.png"));
-		 * 
-		 * } catch (IOException e) { e.printStackTrace(); }
-		 **/
-
 		try {
 			background = ImageIO.read(this.getClass().getResourceAsStream("../Frogger Background.png"));
 			gameOverR = ImageIO.read(this.getClass().getResourceAsStream("../GameOverRedV3.png"));
@@ -122,11 +111,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		}
 		/** VV ASSORTED CODE VV **/
 		Frog = new FroggerObject(190 + 50, 510 + 30, 64, 64, "up");
-		// System.out.println("asdf");
 		timer = new Timer(1000 / 60, this);
 		timer.start();
-		// timer.addActionListener((ActionListener) t);
-		// System.out.println(" " + FullLog1.x);
 		repaint();
 	}
 
@@ -134,24 +120,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public void paintComponent(Graphics g) {
 		System.out.println("{" + timer.toString() + "}" + "DELAY; " + timer.getDelay());
 
-		// if(isMoving){
-
-		/*
-		 * log1 += 6; log2 += 5; log3 += -10; log4 += -7; // } if (log1 >= 520)
-		 * { log1 = -300; } if (log2 >= 530) { log2 = -290; } if (log3 <= -320)
-		 * { log3 = 520; } if (log4 >= 520) { log4 = -290; } if (rTruck1 >= 520)
-		 * { rTruck1 = -300; } if (rTruck2 >= 530) { rTruck2 = -290; } if
-		 * (lTruck1 <= -320) { lTruck1 = 520; } if (lTruck2 >= 520) { lTruck2 =
-		 * -290; }
-		 */
 		g.drawImage(background, 50, 76, null);
 
-		/*
-		 * g.drawImage(logImage, log1, 60, null); g.drawImage(logImage, log2,
-		 * 105, null); g.drawImage(logImage, log3, 150, null);
-		 * g.drawImage(logImage, log4, 195, null);
-		 */
-		// if (frogIsDead = false) {
 		if (Frog.isDead) {
 			Frog.draw(g);
 			RLog1.draw(g);
@@ -170,14 +140,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		rtruck2.draw(g);
 		ltruck1.draw(g);
 		ltruck2.draw(g);
-		// }
-		/*
-		 * g.drawImage(Rtruck, rTruck1, frogY, null); g.drawImage(Rtruck,
-		 * rTruck2, frogY, null); g.drawImage(Ltruck, lTruck1, frogY, null);
-		 * g.drawImage(Ltruck, lTruck2, frogY, null);
-		 */
-		// g.drawImage(frogImage, frogX, frogY, null);
-		// FullLog1.update();
 		System.out.println("DRAW");
 		if (gameWinThing) {
 			System.out.println("YOU WIN!");
@@ -208,9 +170,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 				Frog.y = 510 + 30;
 			}
 		}
-		// String PerformedAction =
 
-		// THIS IS A THING.
 		if (Frog.y <= 55 + 75) {
 			System.out.println("You win!");
 			gameWinThing = true;
@@ -324,44 +284,14 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 				}
 			}
 		}
-		// ******************************************vvTHINGS TO WORK ON
-		// HEREvv******************************************//
-
-		// if (Frog.x < 0 + 50) {
-		// Frog.isMovingLeft = false;
-		// }
-		// if (Frog.x > 516 + 50) {
-		// Frog.isMovingRight = false;
-		// System.out.println("516 +");
-		// }
-		// if (Frog.x > 0 + 50) {
-		// Frog.isMovingLeft = true;
-		// }
-		// if (Frog.x < 516 + 50) {
-		// Frog.isMovingRight = true;
-		// }
-		//
-		// if (Frog.y < 0 + 75) {
-		// Frog.isMovingUp = false;
-		// }
-		// if (Frog.y > 556 + 75) {
-		// Frog.isMovingDown = false;
-		// }
-		// if (Frog.y > 0 + 75) {
-		// Frog.isMovingUp = true;
-		// }
-		// if (Frog.y < 556 + 75) {
-		// Frog.isMovingDown = true;
-		// }
-		// ******************************************^^THINGS TO WORK ON
-		// HERE^^******************************************//
+		// *****************vvTHINGS TO WORK ON HEREvv***************** //
+		//******************>>>NOTHING TO  SEE HERE<<<******************//
+		// *****************^^THINGS TO WORK ON HERE^^***************** //
 
 		RLog1.update();
 		LLog1.update();
 		RLog2.update();
 		RLog3.update();
-		// Frog.directionFromPanel = Fr;
-		// setDirectiontoFrog(frogDirectionPasser);
 		Frog.update();
 		rtruck1.update();
 		rtruck2.update();
@@ -396,17 +326,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			frogDirection = "right";
 		}
 		System.out.println("key");
-		// Frog.setDirection(frogDirection);
 	}
 
 	public void keyPressed(KeyEvent e) {
-		// System.out.println("KP RUNNING");
-		// isMoving = true;
 	}
 
 	public void keyReleased(KeyEvent e) {
-		// = false;
-		// System.out.println("KR RUNNING");
 	}
 
 	/*

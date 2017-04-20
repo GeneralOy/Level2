@@ -11,12 +11,11 @@ public class FrogsLogs {
 	public int x;
 	public int fps;
 	int xspeed;
-	// int ySpeed;
 	String name;
 	public BufferedImage logImage;
 	String image;
 
-	public FrogsLogs(int x, /* int xspeed, int ySpeed */ int y, String name, int xspeed, String image) {
+	public FrogsLogs(int x, int y, String name, int xspeed, String image) {
 		this.x = x;
 		this.y = y;
 		this.name = name;
@@ -31,12 +30,9 @@ public class FrogsLogs {
 				e.printStackTrace();
 			}
 		}
-		// x->700, 750, 800
-		// y->300, 350, 400
 	}
 
 	void update() {
-		//System.out.println("" + this.fps);
 		if (this.fps >= 60) {
 			this.fps -= 59;
 		} else {
@@ -59,8 +55,6 @@ public class FrogsLogs {
 
 	void draw(Graphics g) {
 		g.drawImage(logImage, x, y, null);
-		// g.setColor(color);
-		// g.fillRect(x, y, width, height);
 	}
 
 	public void checkCollision() {

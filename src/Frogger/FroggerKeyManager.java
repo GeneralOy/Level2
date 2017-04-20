@@ -17,7 +17,6 @@ public class FroggerKeyManager implements KeyListener {
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-		// System.out.println("KeyTyped");
 		if (e.getKeyChar() == 's') {
 			down = true;
 			// System.out.println("S");
@@ -45,13 +44,11 @@ public class FroggerKeyManager implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
 		if (e.getKeyChar() == 's') {
 			down = false;
 			// System.out.println("SR");

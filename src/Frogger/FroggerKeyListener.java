@@ -14,6 +14,7 @@ public class FroggerKeyListener extends KeyAdapter {
 		keys.put(new Integer(KeyEvent.VK_A), "A");
 		keys.put(new Integer(KeyEvent.VK_S), "S");
 		keys.put(new Integer(KeyEvent.VK_D), "D");
+		keys.put(new Integer(KeyEvent.VK_R), "R");
 	}
 
 	// KeyListener FroggerKeyListener;

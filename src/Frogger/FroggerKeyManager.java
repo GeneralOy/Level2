@@ -8,6 +8,7 @@ public class FroggerKeyManager implements KeyListener {
 	static boolean right = false;
 	static boolean left = false;
 	static boolean up = false;
+	static boolean ReStart = false;
 	public static String frogDirection = "up";
 
 	public FroggerKeyManager() {
@@ -37,6 +38,9 @@ public class FroggerKeyManager implements KeyListener {
 			// System.out.println("W");
 			frogDirection = "up";
 		}
+		if(e.getKeyChar() == 'r'){
+			ReStart = true;
+		}
 	}
 
 	@Override
@@ -60,6 +64,9 @@ public class FroggerKeyManager implements KeyListener {
 		}
 		if (e.getKeyChar() == 'w') {
 			up = false;
+		}
+		if (e.getKeyChar() == 'r') {
+			ReStart = false;
 		}
 	}
 

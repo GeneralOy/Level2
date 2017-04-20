@@ -110,7 +110,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 		try {
 			background = ImageIO.read(this.getClass().getResourceAsStream("../Frogger Background.png"));
-			gameOverR = ImageIO.read(this.getClass().getResourceAsStream("../GameOverRedV2.png"));
+			gameOverR = ImageIO.read(this.getClass().getResourceAsStream("../GameOverRedV3.png"));
 			gameOverB = ImageIO.read(this.getClass().getResourceAsStream("../GameOverBlackV2.png"));
 			logImage = ImageIO.read(this.getClass().getResourceAsStream("../FroggerLog.png"));
 			Rtruck = ImageIO.read(this.getClass().getResourceAsStream("../Froggertruck1.png"));
@@ -201,17 +201,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 				frogIsDead = false;
 				gameOverThing = false;
 				gameWinThing = false;
-				timerInt = 0;
 				Frog.isDead = false;
+				Frog.Drown = false;
+				Frog.frogImage = Frog.up;
 				Frog.x = 190 + 50;
 				Frog.y = 510 + 30;
-				System.out.println("ASDGKAJSHDKJGASFKJADSGFASKUDHKLJASGFKASLKJDHJKASGFKJHASKLJDHLGSAFKJASKJDHJASGFKASL");
-				System.out.println("ASDGKAJSHDKJGASFKJADSGFASKUDHKLJASGFKASLKJDHJKASGFKJHASKLJDHLGSAFKJASKJDHJASGFKASL");
-				System.out.println("ASDGKAJSHDKJGASFKJADSGFASKUDHKLJASGFKASLKJDHJKASGFKJHASKLJDHLGSAFKJASKJDHJASGFKASL");
-				System.out.println("ASDGKAJSHDKJGASFKJADSGFASKUDHKLJASGFKASLKJDHJKASGFKJHASKLJDHLGSAFKJASKJDHJASGFKASL");
-				System.out.println("ASDGKAJSHDKJGASFKJADSGFASKUDHKLJASGFKASLKJDHJKASGFKJHASKLJDHLGSAFKJASKJDHJASGFKASL");
-				System.out.println("ASDGKAJSHDKJGASFKJADSGFASKUDHKLJASGFKASLKJDHJKASGFKJHASKLJDHLGSAFKJASKJDHJASGFKASL");
-				System.out.println("ASDGKAJSHDKJGASFKJADSGFASKUDHKLJASGFKASLKJDHJKASGFKJHASKLJDHLGSAFKJASKJDHJASGFKASL");
 			}
 		}
 		// String PerformedAction =

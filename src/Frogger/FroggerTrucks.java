@@ -44,7 +44,7 @@ public class FroggerTrucks {
 	}
 
 	void update() {
-		System.out.println("" + this.fps);
+		//System.out.println("" + this.fps);
 		if (this.fps >= 60) {
 			this.fps -= 59;
 		} else {

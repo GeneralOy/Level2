@@ -84,7 +84,7 @@ public class FroggerObject {
 
 	void update() {
 		// setDirection(directionFromPanel);
-		System.out.println("frog.update");
+		//System.out.println("frog.update");
 		/*
 		 * if (direction.equals("up")) { frogImage = up;
 		 * System.out.println("up"); imageDirection = "up"; } if

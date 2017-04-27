@@ -21,6 +21,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public boolean gameOverThing;
 	Timer timer;
 	// public String collision;
+	public int LifeCounter;
 	public String collisionY;
 	public String frogDirectionPasser;
 	public Image Froggerbackground;
@@ -82,6 +83,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	int R = new Integer(KeyEvent.VK_R);
 
 	public GamePanel() {
+		LifeCounter = 3;
 		timerInt = 0;
 		frogIsDead = false;
 		gameWinThing = false;
@@ -159,7 +161,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	// VV Frog Movement VV//
 	public void actionPerformed(ActionEvent e) {
 		if (frogIsDead || gameOverThing || gameWinThing) {
-			if (FroggerKeyManager.ReStart) {
+			if (FroggerKeyManager.ReStart && LifeCounter <= 0) {
+				Frog.SplashStage = 2;
 				frogIsDead = false;
 				gameOverThing = false;
 				gameWinThing = false;
@@ -168,6 +171,21 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 				Frog.frogImage = Frog.up;
 				Frog.x = 190 + 50;
 				Frog.y = 510 + 30;
+				LifeCounter = 3;
+			} else if (LifeCounter >= 0 || (Frog.SplashStage >= 11 && LifeCounter >= 0)) {
+				if (frogIsDead) {
+					Frog.SplashStage = 2;
+					frogIsDead = false;
+					gameOverThing = false;
+					gameWinThing = false;
+					Frog.isDead = false;
+					Frog.Drown = false;
+					Frog.frogImage = Frog.up;
+					Frog.x = 190 + 50;
+					Frog.y = 510 + 30;
+					LifeCounter -= 1;
+					System.out.println("LIVES LEFT; " + LifeCounter + "////////////////////////////");
+				}
 			}
 		}
 
@@ -184,7 +202,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 					System.out.println("Collided1");
 					Frog.isDead = true;
 					frogIsDead = true;
-					gameOverThing = true;
+					if (LifeCounter >= 0) {
+						gameOverThing = true;
+					}
 				}
 			}
 			if (Frog.x >= rtruck2.x && Frog.x <= rtruck2.x + 124) {
@@ -193,7 +213,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 					System.out.println("Collided2");
 					Frog.isDead = true;
 					frogIsDead = true;
-					gameOverThing = true;
+					if (LifeCounter >= 0) {
+						gameOverThing = true;
+					}
 				}
 			}
 			if (Frog.x >= ltruck1.x && Frog.x <= ltruck1.x + 180) {
@@ -202,7 +224,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 					System.out.println("Collided3");
 					Frog.isDead = true;
 					frogIsDead = true;
-					gameOverThing = true;
+					if (LifeCounter >= 0) {
+						gameOverThing = true;
+					}
 				}
 			}
 			if (Frog.x >= ltruck2.x && Frog.x <= ltruck2.x + 180) {
@@ -211,7 +235,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 					System.out.println("Collided4");
 					Frog.isDead = true;
 					frogIsDead = true;
-					gameOverThing = true;
+					if (LifeCounter >= 0) {
+						gameOverThing = true;
+					}
 				}
 			}
 			// Log collision
@@ -227,7 +253,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 						timer.setDelay(1000 / 60);
 						timerInt++;
 						Frog.SplashStage++;
-						gameOverThing = true;
+						if (LifeCounter <= 0) {
+							gameOverThing = true;
+						}
 					}
 				} else {
 					timer.setDelay(1000 / 60);
@@ -285,7 +313,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			}
 		}
 		// *****************vvTHINGS TO WORK ON HEREvv***************** //
-		//******************>>>NOTHING TO  SEE HERE<<<******************//
+		// ******************>>>NOTHING TO SEE HERE<<<******************//
 		// *****************^^THINGS TO WORK ON HERE^^***************** //
 
 		RLog1.update();

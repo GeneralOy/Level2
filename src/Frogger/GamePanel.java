@@ -149,7 +149,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		} else if (frogIsDead) {
 			if (gameOverThing) {
 				System.out.println("Frog is dead");
+				if(LifeCounter <= 0){
 				g.drawImage(gameOverR, 110 + 50, 110 + 75, null);
+				}
 			}
 
 		}
@@ -172,7 +174,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 				Frog.x = 190 + 50;
 				Frog.y = 510 + 30;
 				LifeCounter = 3;
-			} else if (LifeCounter >= 0 || (Frog.SplashStage >= 11 && LifeCounter >= 0)) {
+			} else if (LifeCounter > 0 || (Frog.SplashStage >= 11 && LifeCounter >= 0)) {
 				if (frogIsDead) {
 					Frog.SplashStage = 2;
 					frogIsDead = false;

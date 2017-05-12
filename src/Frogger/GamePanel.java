@@ -74,6 +74,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	BufferedImage Rtruck;
 	BufferedImage Ltruck;
 	BufferedImage WinScreen1;
+	BufferedImage N3c;
+	BufferedImage N2c;
+	BufferedImage N1c;
+	BufferedImage N0cR;
+	BufferedImage HEALTH;
 	Image image;
 	int counter;
 	int W = new Integer(KeyEvent.VK_W);
@@ -100,6 +105,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 		/** VV Image Prep VV **/
 		try {
+			N3c = ImageIO.read(this.getClass().getResourceAsStream("../NUMBERS3c.png"));
+			N2c = ImageIO.read(this.getClass().getResourceAsStream("../NUMBERS2c.png"));
+			N1c = ImageIO.read(this.getClass().getResourceAsStream("../NUMBERS1c.png"));
+			N0cR = ImageIO.read(this.getClass().getResourceAsStream("../NUMBERS0cR.png"));
+			HEALTH = ImageIO.read(this.getClass().getResourceAsStream("../healthCv3.png"));
 			background = ImageIO.read(this.getClass().getResourceAsStream("../Frogger Background.png"));
 			gameOverR = ImageIO.read(this.getClass().getResourceAsStream("../GameOverRedV3.png"));
 			gameOverB = ImageIO.read(this.getClass().getResourceAsStream("../GameOverBlackV2.png"));
@@ -130,13 +140,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			RLog2.draw(g);
 			LLog1.draw(g);
 			RLog3.draw(g);
-		} else {
+		}
+		
 			RLog1.draw(g);
 			RLog2.draw(g);
 			LLog1.draw(g);
 			RLog3.draw(g);
 			Frog.draw(g);
-		}
 
 		rtruck1.draw(g);
 		rtruck2.draw(g);
@@ -158,6 +168,18 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		g.drawImage(ArcadeMachineBackground, 0, 0, null);
 		System.out.println("" + ArcadeMachineBackground.getWidth());
 		System.out.println("" + ArcadeMachineBackground.getHeight());
+		if(LifeCounter == 3) {
+			g.drawImage(N3c, 200, 580, null);
+		}else if(LifeCounter == 2) {
+			g.drawImage(N2c, 200, 580, null);
+		}else if(LifeCounter == 1) {
+			g.drawImage(N1c, 200, 580, null);
+		}else if(LifeCounter == 0) {
+			g.drawImage(N0cR, 200, 580, null);
+		} else {
+			
+		}
+		g.drawImage(HEALTH, 50, 580, null);
 	}
 
 	// VV Frog Movement VV//

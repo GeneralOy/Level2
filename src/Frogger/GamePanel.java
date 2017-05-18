@@ -43,6 +43,15 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	int rTruck2;
 	int lTruck1;
 	int lTruck2;
+	Random randomSpeed = new Random();
+	int truckSpeed1;
+	int truckSpeed2;
+	int truckSpeed3;
+	int truckSpeed4;
+	int logSpeed1;
+	int logSpeed2;
+	int logSpeed3;
+	int logSpeed4;
 	// ImageObject log3;
 	// ImageObject log1;
 	// ImageObject log2;
@@ -94,14 +103,22 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		gameWinThing = false;
 		frogDirection = "up";
 
-		RLog1 = new FrogsLogs(log1 + 50, 60 + 76, "rlog", 9, "log");
-		RLog2 = new FrogsLogs(log2 + 50, 105 + 76, "rlog", 7, "log");
-		LLog1 = new FrogsLogs(log3 + 50, 150 + 76, "llog", -8, "log");
-		RLog3 = new FrogsLogs(log4 + 50, 195 + 76, "rlog", 6, "log");
-		rtruck1 = new FroggerTrucks(rTruck1 + 50, 285 + 75, "rtruck", 10, "rtruck");
-		rtruck2 = new FroggerTrucks(rTruck2 + 50, 375 + 75, "rtruck", 8, "rtruck");
-		ltruck1 = new FroggerTrucks(lTruck1 + 50, 325 + 75, "ltruck", -7, "ltruck");
-		ltruck2 = new FroggerTrucks(lTruck2 + 50, 415 + 75, "ltruck", -5, "ltruck");
+		logSpeed1 = /*9*/randomSpeed.nextInt(15);
+		logSpeed2 = /*7*/randomSpeed.nextInt(13);
+		logSpeed3 = /*-8*/randomSpeed.nextInt(9) -10;
+		logSpeed4 = /*6*/randomSpeed.nextInt(10);
+		truckSpeed1 = /*10*/randomSpeed.nextInt(19)+1;
+		truckSpeed2 = /*8*/randomSpeed.nextInt(9)+1;
+		truckSpeed3 = /*-7*/randomSpeed.nextInt(15) - 16;
+		truckSpeed4 = /*-5*/randomSpeed.nextInt(12) - 13;
+		RLog1 = new FrogsLogs(log1 + 50, 60 + 76, "rlog", logSpeed1, "log");
+		RLog2 = new FrogsLogs(log2 + 50, 105 + 76, "rlog", logSpeed2, "log");
+		LLog1 = new FrogsLogs(log3 + 50, 150 + 76, "llog", logSpeed3, "log");
+		RLog3 = new FrogsLogs(log4 + 50, 195 + 76, "rlog", logSpeed4, "log");
+		rtruck1 = new FroggerTrucks(rTruck1 + 50, 285 + 75, "rtruck", truckSpeed1, "rtruck");
+		rtruck2 = new FroggerTrucks(rTruck2 + 50, 375 + 75, "rtruck", truckSpeed2, "rtruck");
+		ltruck1 = new FroggerTrucks(lTruck1 + 50, 325 + 75, "ltruck", truckSpeed3, "ltruck");
+		ltruck2 = new FroggerTrucks(lTruck2 + 50, 415 + 75, "ltruck", truckSpeed4, "ltruck");
 
 		/** VV Image Prep VV **/
 		try {
@@ -146,6 +163,18 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			RLog2.draw(g);
 			LLog1.draw(g);
 			RLog3.draw(g);
+			if(LifeCounter == 3) {
+				g.drawImage(N3c, 210, 580, null);
+			}else if(LifeCounter == 2) {
+				g.drawImage(N2c, 210, 580, null);
+			}else if(LifeCounter == 1) {
+				g.drawImage(N1c, 210, 580, null);
+			}else if(LifeCounter == 0) {
+				g.drawImage(N0cR, 210, 580, null);
+			} else {
+				
+			}
+			g.drawImage(HEALTH, 55, 580, null);
 			Frog.draw(g);
 
 		rtruck1.draw(g);
@@ -165,21 +194,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			}
 
 		}
+		
 		g.drawImage(ArcadeMachineBackground, 0, 0, null);
 		System.out.println("" + ArcadeMachineBackground.getWidth());
 		System.out.println("" + ArcadeMachineBackground.getHeight());
-		if(LifeCounter == 3) {
-			g.drawImage(N3c, 200, 580, null);
-		}else if(LifeCounter == 2) {
-			g.drawImage(N2c, 200, 580, null);
-		}else if(LifeCounter == 1) {
-			g.drawImage(N1c, 200, 580, null);
-		}else if(LifeCounter == 0) {
-			g.drawImage(N0cR, 200, 580, null);
-		} else {
-			
-		}
-		g.drawImage(HEALTH, 50, 580, null);
 	}
 
 	// VV Frog Movement VV//
@@ -196,7 +214,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 				Frog.x = 190 + 50;
 				Frog.y = 510 + 30;
 				LifeCounter = 3;
-			} else if (LifeCounter > 0 || (Frog.SplashStage >= 11 && LifeCounter >= 0)) {
+			} else if (LifeCounter > 0 || (Frog.SplashStage >= 11 && LifeCounter > 0)) {
 				if (frogIsDead) {
 					Frog.SplashStage = 2;
 					frogIsDead = false;
@@ -289,7 +307,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 					if (Frog.x >= RLog1.x && Frog.x <= RLog1.x + 176) {
 						collision = true;
 						System.out.println("Log1");
-						Frog.x += 8;
+						Frog.x += logSpeed1;
 					} else {
 						Frog.Drown = true;
 						frogIsDead = true;
@@ -301,7 +319,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 					if (Frog.x >= RLog2.x && Frog.x <= RLog2.x + 176) {
 						collision = true;
 						System.out.println("Log2");
-						Frog.x += 7;
+						Frog.x += logSpeed2;
 					} else {
 						Frog.Drown = true;
 						frogIsDead = true;
@@ -312,7 +330,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 					if (Frog.x >= LLog1.x && Frog.x <= LLog1.x + 176) {
 						collision = true;
 						System.out.println("Log3");
-						Frog.x -= 8;
+						Frog.x += logSpeed3;
 					} else {
 						Frog.Drown = true;
 						frogIsDead = true;
@@ -327,7 +345,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 					if (Frog.x >= RLog3.x && Frog.x <= RLog3.x + 176) {
 						collision = true;
 						System.out.println("Log4");
-						Frog.x += 6;
+						Frog.x += logSpeed4;
 					} else {
 						Frog.Drown = true;
 						frogIsDead = true;

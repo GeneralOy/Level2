@@ -39,13 +39,13 @@ public class FrogsLogs {
 			this.fps++;
 		}
 		if (name.equals("rlog")) {
-			if (x >= 520) {
+			if (x >= 550) {
 				x = -300;
 			} else {
 				x += xspeed;
 			}
 		} else if (name.equals("llog")) {
-			if (x <= -300) {
+			if (x <= -310) {
 				x = 520;
 			} else {
 				x += xspeed;

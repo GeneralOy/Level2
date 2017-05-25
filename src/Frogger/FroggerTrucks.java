@@ -47,7 +47,7 @@ public class FroggerTrucks {
 			this.fps++;
 		}
 		if (name.equals("rtruck")) {
-			if (x >= 520) {
+			if (x >= 540) {
 				x = -300;
 			} else {
 				x += xspeed;

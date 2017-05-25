@@ -238,7 +238,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		}
 		if (Frog.y >= 550 + 50) {
 		} else {
-			if (Frog.x >= rtruck1.x && Frog.x <= rtruck1.x + 124) {
+			//////////////////////////////////////////////////////////
+			if (Frog.x  + 43>= rtruck1.x && Frog.x <= rtruck1.x + 124) {
 				if (Frog.y >= 285 + 75 && Frog.y <= 325 + 75) {
 					collision = true;
 					System.out.println("Collided1");
@@ -249,7 +250,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 					}
 				}
 			}
-			if (Frog.x >= rtruck2.x && Frog.x <= rtruck2.x + 124) {
+			if (Frog.x + 43 >= rtruck2.x && Frog.x <= rtruck2.x + 124) {
 				if (Frog.y >= 375 + 75 && Frog.y <= 415 + 75) {
 					collision = true;
 					System.out.println("Collided2");
@@ -260,7 +261,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 					}
 				}
 			}
-			if (Frog.x >= ltruck1.x && Frog.x <= ltruck1.x + 180) {
+			if (Frog.x + 43 >= ltruck1.x && Frog.x + 43  <= ltruck1.x + 180) {
 				if (Frog.y >= 325 + 75 && Frog.y <= 370 + 75) {
 					collision = true;
 					System.out.println("Collided3");
@@ -271,7 +272,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 					}
 				}
 			}
-			if (Frog.x >= ltruck2.x && Frog.x <= ltruck2.x + 180) {
+			if (Frog.x + 43 >= ltruck2.x && Frog.x + 43 <= ltruck2.x + 180) {
 				if (Frog.y >= 415 + 75 && Frog.y <= 460 + 75) {
 					collision = true;
 					System.out.println("Collided4");
@@ -282,7 +283,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 					}
 				}
 			}
-			// Log collision
+			//////////////////////////////////////// Log collision
 			if (Frog.isDead) {
 				System.out.println("Yup I'm [dead]");
 				if (Frog.Drown) {
@@ -304,7 +305,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 				}
 			} else {
 				if (Frog.y >= 60 + 75 && Frog.y <= 100 + 75) {
-					if (Frog.x >= RLog1.x && Frog.x <= RLog1.x + 176) {
+					if (Frog.x + 21 >= RLog1.x && Frog.x + 21 <= RLog1.x + 176) {
 						collision = true;
 						System.out.println("Log1");
 						Frog.x += logSpeed1;
@@ -316,7 +317,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 					}
 				}
 				if (Frog.y >= 105 + 75 && Frog.y <= 145 + 75) {
-					if (Frog.x >= RLog2.x && Frog.x <= RLog2.x + 176) {
+					if (Frog.x + 21 >= RLog2.x && Frog.x + 21 <= RLog2.x + 176) {
 						collision = true;
 						System.out.println("Log2");
 						Frog.x += logSpeed2;
@@ -327,7 +328,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 					}
 				}
 				if (Frog.y >= 150 + 75 && Frog.y <= 190 + 75) {
-					if (Frog.x >= LLog1.x && Frog.x <= LLog1.x + 176) {
+					if (Frog.x + 21 >= LLog1.x && Frog.x + 21 <= LLog1.x + 176) {
 						collision = true;
 						System.out.println("Log3");
 						Frog.x += logSpeed3;
@@ -342,7 +343,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 					}
 				}
 				if (Frog.y >= 195 + 75 && Frog.y <= 235 + 75) {
-					if (Frog.x >= RLog3.x && Frog.x <= RLog3.x + 176) {
+					if (Frog.x + 21 >= RLog3.x && Frog.x + 21 <= RLog3.x + 176) {
 						collision = true;
 						System.out.println("Log4");
 						Frog.x += logSpeed4;
@@ -354,6 +355,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 				}
 			}
 		}
+		///////////////////////////////////////////////////////////////////////////////
 		// *****************vvTHINGS TO WORK ON HEREvv***************** //
 		// ******************>>>NOTHING TO SEE HERE<<<******************//
 		// *****************^^THINGS TO WORK ON HERE^^***************** //

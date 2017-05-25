@@ -183,6 +183,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		ltruck2.draw(g);
 		System.out.println("DRAW");
 		if (gameWinThing) {
+			Frog.gameWon = true;
 			System.out.println("YOU WIN!");
 			g.drawImage(WinScreen1, 8 + 50, 110 + 75, null);
 		} else if (frogIsDead) {
@@ -204,6 +205,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public void actionPerformed(ActionEvent e) {
 		if (frogIsDead || gameOverThing || gameWinThing) {
 			if (FroggerKeyManager.ReStart && LifeCounter <= 0) {
+				Frog.gameWon = false;
 				Frog.SplashStage = 2;
 				frogIsDead = false;
 				gameOverThing = false;
@@ -216,6 +218,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 				LifeCounter = 3;
 			} else if (LifeCounter > 0 || (Frog.SplashStage >= 11 && LifeCounter > 0)) {
 				if (frogIsDead) {
+					//Frog.gameWon = false;
 					Frog.SplashStage = 2;
 					frogIsDead = false;
 					gameOverThing = false;
@@ -234,6 +237,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		if (Frog.y <= 55 + 75) {
 			System.out.println("You win!");
 			gameWinThing = true;
+			Frog.gameWon = true;
 		} else {
 		}
 		if (Frog.y >= 550 + 50) {

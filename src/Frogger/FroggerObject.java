@@ -24,6 +24,7 @@ public class FroggerObject {
 	boolean isMovingRight;
 	boolean isDead;
 	boolean Drown;
+	boolean gameWon;
 	int y;
 	int x;
 	int w;
@@ -47,8 +48,8 @@ public class FroggerObject {
 	BufferedImage Splash7;
 	Timer timer1;
 
-	public FroggerObject(int x, int y, int w, int h,
-			String direction) {
+	public FroggerObject(int x, int y, int w, int h, String direction) {
+		gameWon = false;
 		SplashStage = 0;
 		isDead = false;
 		this.x = x;
@@ -119,40 +120,46 @@ public class FroggerObject {
 		}
 
 		System.out.println("YAY");
-		if (isDead == false) {
-			if (FroggerKeyManager.down) {
-				if (isMovingDown = true) {
-					goDown();
-				}
-				FroggerKeyManager.down = false;
+		if (gameWon) {
+			if(FroggerKeyManager.ReStart){
+				x = 190 + 50;
+				y = 510 + 30;
 			}
-			if (FroggerKeyManager.right) {
-				if (isMovingRight = true) {
-					goRight();
+		} else {
+			if (isDead == false) {
+				if (FroggerKeyManager.down) {
+					if (isMovingDown = true) {
+						goDown();
+					}
+					FroggerKeyManager.down = false;
 				}
-				FroggerKeyManager.right = false;
-			}
-			if (FroggerKeyManager.left) {
-				if (isMovingLeft = true) {
-					goLeft();
+				if (FroggerKeyManager.right) {
+					if (isMovingRight = true) {
+						goRight();
+					}
+					FroggerKeyManager.right = false;
 				}
-				FroggerKeyManager.left = false;
-			}
-			if (FroggerKeyManager.up) {
-				if (isMovingUp = true) {
-					goUp();
+				if (FroggerKeyManager.left) {
+					if (isMovingLeft = true) {
+						goLeft();
+					}
+					FroggerKeyManager.left = false;
 				}
-				FroggerKeyManager.up = false;
+				if (FroggerKeyManager.up) {
+					if (isMovingUp = true) {
+						goUp();
+					}
+					FroggerKeyManager.up = false;
+				}
 			}
 		}
 	}
 
-
 	public void goUp() {
 		frogImage = up;
 		System.out.println("up");
-		if(y >= 0){
-		y -= 45;
+		if (y >= 0) {
+			y -= 45;
 		}
 	}
 
@@ -166,14 +173,16 @@ public class FroggerObject {
 		frogImage = right;
 		System.out.println("left");
 		x -= 45;
-		if ((y <= 539 && y >= 285 + 75) /**|| (y <= 330 + 75 && y >= 55 + 75)*/) {
+		if ((y <= 539
+				&& y >= 285 + 75) /** || (y <= 330 + 75 && y >= 55 + 75) */
+		) {
 			if (x <= 0 + 50) {
 				x += 45;
 			}
-		}else if(y >= 330 + 75 && y <= 55 + 75) {
+		} else if (y >= 330 + 75 && y <= 55 + 75) {
 			System.out.println("River");
-		}else if (x <= 25) {
-		
+		} else if (x <= 25) {
+
 			x = 510;
 		}
 	}
@@ -182,14 +191,16 @@ public class FroggerObject {
 		frogImage = left;
 		System.out.println("right");
 		x += 45;
-		if ((y <= 539 && y>= 285+75) /**|| (y <= 330 + 75 && y >= 55 + 75)*/) {
+		if ((y <= 539
+				&& y >= 285 + 75) /** || (y <= 330 + 75 && y >= 55 + 75) */
+		) {
 			if (x >= 516 + 5) {
 				x -= 45;
 			}
-		}else if(y <= 330 + 75 && y >= 55 + 75) {
+		} else if (y <= 330 + 75 && y >= 55 + 75) {
 			System.out.println("River");
 		} else if (x >= 511) {
-			x =  60;
+			x = 60;
 		}
 	}
 
@@ -197,6 +208,5 @@ public class FroggerObject {
 		g.drawImage(frogImage, x, y, null);
 
 	}
-
 
 }

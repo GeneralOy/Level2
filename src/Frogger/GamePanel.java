@@ -127,7 +127,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			N1c = ImageIO.read(this.getClass().getResourceAsStream("../NUMBERS1c.png"));
 			N0cR = ImageIO.read(this.getClass().getResourceAsStream("../NUMBERS0cR.png"));
 			HEALTH = ImageIO.read(this.getClass().getResourceAsStream("../healthCv3.png"));
-			background = ImageIO.read(this.getClass().getResourceAsStream("../Frogger Background.png"));
+			background = ImageIO.read(this.getClass().getResourceAsStream("../Frogger Background Timer.png"));
 			gameOverR = ImageIO.read(this.getClass().getResourceAsStream("../GameOverRedV3.png"));
 			gameOverB = ImageIO.read(this.getClass().getResourceAsStream("../GameOverBlackV2.png"));
 			logImage = ImageIO.read(this.getClass().getResourceAsStream("../FroggerLog.png"));
@@ -240,7 +240,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			Frog.gameWon = true;
 		} else {
 		}
-		if (Frog.y >= 550 + 50) {
+		if (Frog.y >= 550 + 5) {
+			Frog.y -= 45;
 		} else {
 			//////////////////////////////////////////////////////////
 			if (Frog.x  + 43>= rtruck1.x && Frog.x <= rtruck1.x + 124) {

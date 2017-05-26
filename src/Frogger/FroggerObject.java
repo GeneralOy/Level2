@@ -158,15 +158,17 @@ public class FroggerObject {
 	public void goUp() {
 		frogImage = up;
 		System.out.println("up");
-		if (y >= 0) {
+		if (y >= 5) {
 			y -= 45;
 		}
 	}
 
 	public void goDown() {
+		if(x >= 545) {
 		frogImage = down;
 		System.out.println("down");
 		y += 45;
+		}
 	}
 
 	public void goLeft() {

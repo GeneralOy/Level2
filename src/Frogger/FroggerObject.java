@@ -167,7 +167,7 @@ public class FroggerObject {
 	}
 
 	public void goDown() {
-		if (x <= 535) {
+		if (y <= 565) {
 			frogImage = down;
 			System.out.println("down");
 			y += 45;

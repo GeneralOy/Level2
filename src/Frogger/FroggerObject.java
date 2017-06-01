@@ -121,7 +121,7 @@ public class FroggerObject {
 
 		System.out.println("YAY");
 		if (gameWon) {
-			if(FroggerKeyManager.ReStart){
+			if (FroggerKeyManager.ReStart) {
 				x = 190 + 50;
 				y = 510 + 30;
 			}
@@ -129,7 +129,10 @@ public class FroggerObject {
 			if (isDead == false) {
 				if (FroggerKeyManager.down) {
 					if (isMovingDown = true) {
-						goDown();
+						if (y >= 500) {
+						}else {
+							goDown();
+						}
 					}
 					FroggerKeyManager.down = false;
 				}
@@ -164,10 +167,12 @@ public class FroggerObject {
 	}
 
 	public void goDown() {
-		if(x >= 545) {
-		frogImage = down;
-		System.out.println("down");
-		y += 45;
+		if (x <= 535) {
+			frogImage = down;
+			System.out.println("down");
+			y += 45;
+		} else {
+			frogImage = up;
 		}
 	}
 

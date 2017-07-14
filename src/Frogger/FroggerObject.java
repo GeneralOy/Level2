@@ -180,9 +180,7 @@ public class FroggerObject {
 		frogImage = right;
 		System.out.println("left");
 		x -= 45;
-		if ((y <= 539
-				&& y >= 285 + 75) /** || (y <= 330 + 75 && y >= 55 + 75) */
-		) {
+		if ((y <= 539 && y >= 285 + 75) /** || (y <= 330 + 75 && y >= 55 + 75) */) {
 			if (x <= 0 + 50) {
 				x += 45;
 			}
@@ -198,13 +196,11 @@ public class FroggerObject {
 		frogImage = left;
 		System.out.println("right");
 		x += 45;
-		if ((y <= 539
-				&& y >= 285 + 75) /** || (y <= 330 + 75 && y >= 55 + 75) */
-		) {
+		if ((y <= 539 && y >= 285 + 75) /** || (y <= 330 + 75 && y >= 55 + 75) */) {
 			if (x >= 516 + 5) {
 				x -= 45;
 			}
-		} else if (y <= 330 + 75 && y >= 55 + 75) {
+		} else if (y >= 330 + 75 && y <= 55 + 75) {
 			System.out.println("River");
 		} else if (x >= 511) {
 			x = 60;

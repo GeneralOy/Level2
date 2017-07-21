@@ -74,6 +74,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	FroggerTrucks ltruck1;
 	FroggerTrucks ltruck2;
 	BufferedImage ArcadeMachineBackground;
+	BufferedImage WASDInstructions;
 	BufferedImage gameOverR;
 	BufferedImage gameOverB;
 	BufferedImage background;
@@ -122,6 +123,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 		/** VV Image Prep VV **/
 		try {
+			WASDInstructions = ImageIO.read(this.getClass().getResourceAsStream("../wasd.png"));
 			N3c = ImageIO.read(this.getClass().getResourceAsStream("../NUMBERS3c.png"));
 			N2c = ImageIO.read(this.getClass().getResourceAsStream("../NUMBERS2c.png"));
 			N1c = ImageIO.read(this.getClass().getResourceAsStream("../NUMBERS1c.png"));
@@ -149,8 +151,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public void paintComponent(Graphics g) {
 		System.out.println("{" + timer.toString() + "}" + "DELAY; " + timer.getDelay());
 
+		
 		g.drawImage(background, 50, 76, null);
-
 		if (Frog.isDead) {
 			Frog.draw(g);
 			RLog1.draw(g);
@@ -197,6 +199,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		}
 		
 		g.drawImage(ArcadeMachineBackground, 0, 0, null);
+		g.drawImage(WASDInstructions, 240, 700, null);
 		System.out.println("" + ArcadeMachineBackground.getWidth());
 		System.out.println("" + ArcadeMachineBackground.getHeight());
 	}

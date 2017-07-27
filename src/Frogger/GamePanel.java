@@ -26,6 +26,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public String frogDirectionPasser;
 	public Image Froggerbackground;
 	public boolean isMoving;
+	public boolean hitByTruck;
 	public boolean gameWinThing;
 	public String keyTyped1;
 	public int key;
@@ -103,13 +104,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		frogIsDead = false;
 		gameWinThing = false;
 		frogDirection = "up";
-
-		logSpeed1 = /*9*/randomSpeed.nextInt(15);
-		logSpeed2 = /*7*/randomSpeed.nextInt(13);
-		logSpeed3 = /*-8*/randomSpeed.nextInt(9) -10;
-		logSpeed4 = /*6*/randomSpeed.nextInt(10);
-		truckSpeed1 = /*10*/randomSpeed.nextInt(19)+1;
-		truckSpeed2 = /*8*/randomSpeed.nextInt(9)+1;
+		hitByTruck = false;
+		logSpeed1 = /* 9 */randomSpeed.nextInt(15);
+		logSpeed2 = /* 7 */randomSpeed.nextInt(13);
+		logSpeed3 = /*-8*/randomSpeed.nextInt(9) - 10;
+		logSpeed4 = /* 6 */randomSpeed.nextInt(10);
+		truckSpeed1 = /* 10 */randomSpeed.nextInt(19) + 1;
+		truckSpeed2 = /* 8 */randomSpeed.nextInt(9) + 1;
 		truckSpeed3 = /*-7*/randomSpeed.nextInt(15) - 16;
 		truckSpeed4 = /*-5*/randomSpeed.nextInt(12) - 13;
 		RLog1 = new FrogsLogs(log1 + 50, 60 + 76, "rlog", logSpeed1, "log");
@@ -151,7 +152,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public void paintComponent(Graphics g) {
 		System.out.println("{" + timer.toString() + "}" + "DELAY; " + timer.getDelay());
 
-		
 		g.drawImage(background, 50, 76, null);
 		if (Frog.isDead) {
 			Frog.draw(g);
@@ -160,24 +160,24 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			LLog1.draw(g);
 			RLog3.draw(g);
 		}
-		
-			RLog1.draw(g);
-			RLog2.draw(g);
-			LLog1.draw(g);
-			RLog3.draw(g);
-			if(LifeCounter == 3) {
-				g.drawImage(N3c, 210, 580, null);
-			}else if(LifeCounter == 2) {
-				g.drawImage(N2c, 210, 580, null);
-			}else if(LifeCounter == 1) {
-				g.drawImage(N1c, 210, 580, null);
-			}else if(LifeCounter == 0) {
-				g.drawImage(N0cR, 210, 580, null);
-			} else {
-				
-			}
-			g.drawImage(HEALTH, 55, 580, null);
-			Frog.draw(g);
+
+		RLog1.draw(g);
+		RLog2.draw(g);
+		LLog1.draw(g);
+		RLog3.draw(g);
+		if (LifeCounter == 3) {
+			g.drawImage(N3c, 210, 580, null);
+		} else if (LifeCounter == 2) {
+			g.drawImage(N2c, 210, 580, null);
+		} else if (LifeCounter == 1) {
+			g.drawImage(N1c, 210, 580, null);
+		} else if (LifeCounter == 0) {
+			g.drawImage(N0cR, 210, 580, null);
+		} else {
+
+		}
+		g.drawImage(HEALTH, 55, 580, null);
+		Frog.draw(g);
 
 		rtruck1.draw(g);
 		rtruck2.draw(g);
@@ -191,13 +191,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		} else if (frogIsDead) {
 			if (gameOverThing) {
 				System.out.println("Frog is dead");
-				if(LifeCounter <= 0){
-				g.drawImage(gameOverR, 110 + 50, 110 + 75, null);
+				if (LifeCounter <= 0) {
+					g.drawImage(gameOverR, 110 + 50, 110 + 75, null);
 				}
 			}
 
 		}
-		
+
 		g.drawImage(ArcadeMachineBackground, 0, 0, null);
 		g.drawImage(WASDInstructions, 240, 700, null);
 		System.out.println("" + ArcadeMachineBackground.getWidth());
@@ -219,9 +219,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 				Frog.x = 190 + 50;
 				Frog.y = 510 + 30;
 				LifeCounter = 3;
+				hitByTruck = false;
 			} else if (LifeCounter > 0 || (Frog.SplashStage >= 11 && LifeCounter > 0)) {
-				if (frogIsDead) {
-					//Frog.gameWon = false;
+				if (frogIsDead && Frog.SplashStage >= 11) {
+					// Frog.gameWon = false;
 					Frog.SplashStage = 2;
 					frogIsDead = false;
 					gameOverThing = false;
@@ -233,6 +234,34 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 					Frog.y = 510 + 30;
 					LifeCounter -= 1;
 					System.out.println("LIVES LEFT; " + LifeCounter + "////////////////////////////");
+					hitByTruck = false;
+					timer.setDelay(1000 / 60);
+				} else if (frogIsDead && hitByTruck) {
+					Frog.SplashStage = 2;
+					frogIsDead = false;
+					gameOverThing = false;
+					gameWinThing = false;
+					Frog.isDead = false;
+					Frog.Drown = false;
+					Frog.frogImage = Frog.up;
+					Frog.x = 190 + 50;
+					Frog.y = 510 + 30;
+					LifeCounter -= 1;
+					System.out.println("LIVES LEFT; " + LifeCounter + "////////////////////////////");
+					hitByTruck = false;
+				} else if (gameWinThing && LifeCounter >= 0 && FroggerKeyManager.ReStart) {
+					Frog.gameWon = false;
+					Frog.SplashStage = 2;
+					frogIsDead = false;
+					gameOverThing = false;
+					gameWinThing = false;
+					Frog.isDead = false;
+					Frog.Drown = false;
+					Frog.frogImage = Frog.up;
+					Frog.x = 190 + 50;
+					Frog.y = 510 + 30;
+					LifeCounter = 3;
+					hitByTruck = false;
 				}
 			}
 		}
@@ -247,48 +276,14 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			Frog.y -= 45;
 		} else {
 			//////////////////////////////////////////////////////////
-			if (Frog.x  + 43>= rtruck1.x && Frog.x <= rtruck1.x + 124) {
-				if (Frog.y >= 285 + 75 && Frog.y <= 325 + 75) {
-					collision = true;
-					System.out.println("Collided1");
-					Frog.isDead = true;
-					frogIsDead = true;
-					if (LifeCounter >= 0) {
-						gameOverThing = true;
-					}
-				}
-			}
-			if (Frog.x + 43 >= rtruck2.x && Frog.x <= rtruck2.x + 124) {
-				if (Frog.y >= 375 + 75 && Frog.y <= 415 + 75) {
-					collision = true;
-					System.out.println("Collided2");
-					Frog.isDead = true;
-					frogIsDead = true;
-					if (LifeCounter >= 0) {
-						gameOverThing = true;
-					}
-				}
-			}
-			if (Frog.x + 43 >= ltruck1.x && Frog.x + 43  <= ltruck1.x + 180) {
-				if (Frog.y >= 325 + 75 && Frog.y <= 370 + 75) {
-					collision = true;
-					System.out.println("Collided3");
-					Frog.isDead = true;
-					frogIsDead = true;
-					if (LifeCounter >= 0) {
-						gameOverThing = true;
-					}
-				}
-			}
-			if (Frog.x + 43 >= ltruck2.x && Frog.x + 43 <= ltruck2.x + 180) {
-				if (Frog.y >= 415 + 75 && Frog.y <= 460 + 75) {
-					collision = true;
-					System.out.println("Collided4");
-					Frog.isDead = true;
-					frogIsDead = true;
-					if (LifeCounter >= 0) {
-						gameOverThing = true;
-					}
+			if ((Frog.y >= 415 + 75 && Frog.y <= 460 + 75)&&(Frog.x + 43 >= ltruck2.x && Frog.x + 43 <= ltruck2.x + 180)||(Frog.x + 43 >= ltruck1.x && Frog.x + 43 <= ltruck1.x + 180)&&(Frog.y >= 325 + 75 && Frog.y <= 370 + 75)||(Frog.x + 43 >= rtruck1.x && Frog.x <= rtruck1.x + 124) && (Frog.y >= 285 + 75 && Frog.y <= 325 + 75) || (Frog.x + 43 >= rtruck2.x && Frog.x <= rtruck2.x + 124) && (Frog.y >= 375 + 75 && Frog.y <= 415 + 75)) {
+				hitByTruck = true;
+				collision = true;
+				System.out.println("Collided1");
+				Frog.isDead = true;
+				frogIsDead = true;
+				if (LifeCounter >= 0) {
+					gameOverThing = true;
 				}
 			}
 			//////////////////////////////////////// Log collision
@@ -487,6 +482,43 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 // imageB =
 // ImageIO.read(this.getClass().getResourceAsStream("FroggerBackgroundCopy.png"))
 
+/**
+if (Frog.x + 43 >= rtruck2.x && Frog.x <= rtruck2.x + 124) {
+	if (Frog.y >= 375 + 75 && Frog.y <= 415 + 75) {
+		hitByTruck = true;
+		collision = true;
+		System.out.println("Collided2");
+		Frog.isDead = true;
+		frogIsDead = true;
+		if (LifeCounter >= 0) {
+			gameOverThing = true;
+		}
+	}
+}
+if (Frog.x + 43 >= ltruck1.x && Frog.x + 43 <= ltruck1.x + 180) {
+	if (Frog.y >= 325 + 75 && Frog.y <= 370 + 75) {
+		hitByTruck = true;
+		collision = true;
+		System.out.println("Collided3");
+		Frog.isDead = true;
+		frogIsDead = true;
+		if (LifeCounter >= 0) {
+			gameOverThing = true;
+		}
+	}
+}
+if (Frog.x + 43 >= ltruck2.x && Frog.x + 43 <= ltruck2.x + 180) {
+	if (Frog.y >= 415 + 75 && Frog.y <= 460 + 75) {
+		hitByTruck = true;
+		collision = true;
+		System.out.println("Collided4");
+		Frog.isDead = true;
+		frogIsDead = true;
+		if (LifeCounter >= 0) {
+			gameOverThing = true;
+		}
+	}
+}**/
 /**
  * VVTrash CodeVV /** Gamebackground.draw(g); /** object1.draw(g); /**
  * blackobject.draw(g); /** object3.draw(g); /** object4.draw(g); /**

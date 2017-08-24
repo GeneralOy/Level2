@@ -28,6 +28,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public boolean isMoving;
 	public boolean hitByTruck;
 	public boolean gameWinThing;
+	public boolean resetThingy;
 	public String keyTyped1;
 	public int key;
 	public boolean timerBool;
@@ -151,7 +152,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	// VV Images VV//
 	public void paintComponent(Graphics g) {
 		System.out.println("{" + timer.toString() + "}" + "DELAY; " + timer.getDelay());
-		if(FroggerKeyManager.Reset){
+		if(FroggerKeyManager.Reset || resetThingy){
 			
 			logSpeed1 = /* 9 */randomSpeed.nextInt(15);
 			logSpeed2 = /* 7 */randomSpeed.nextInt(13);

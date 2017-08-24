@@ -199,7 +199,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		}
 
 		g.drawImage(ArcadeMachineBackground, 0, 0, null);
-		g.drawImage(WASDInstructions, 240, 700, null);
+		g.drawImage(WASDInstructions, 240, 710, null);
 		System.out.println("" + ArcadeMachineBackground.getWidth());
 		System.out.println("" + ArcadeMachineBackground.getHeight());
 	}

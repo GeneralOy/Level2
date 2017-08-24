@@ -151,7 +151,26 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	// VV Images VV//
 	public void paintComponent(Graphics g) {
 		System.out.println("{" + timer.toString() + "}" + "DELAY; " + timer.getDelay());
-
+		if(FroggerKeyManager.Reset){
+			
+			logSpeed1 = /* 9 */randomSpeed.nextInt(15);
+			logSpeed2 = /* 7 */randomSpeed.nextInt(13);
+			logSpeed3 = /*-8*/randomSpeed.nextInt(9) - 10;
+			logSpeed4 = /* 6 */randomSpeed.nextInt(10);
+			truckSpeed1 = /* 10 */randomSpeed.nextInt(19) + 1;
+			truckSpeed2 = /* 8 */randomSpeed.nextInt(9) + 1;
+			truckSpeed3 = /*-7*/randomSpeed.nextInt(15) - 16;
+			truckSpeed4 = /*-5*/randomSpeed.nextInt(12) - 13;
+			
+			RLog1.xspeed = logSpeed1;
+			RLog2.xspeed = logSpeed2;
+			LLog1.xspeed = logSpeed3;
+			RLog3.xspeed = logSpeed4;
+			rtruck1.xspeed = truckSpeed1;
+			rtruck2.xspeed = truckSpeed2;
+			ltruck1.xspeed = truckSpeed3;
+			ltruck2.xspeed = truckSpeed4;
+		}
 		g.drawImage(background, 50, 76, null);
 		if (Frog.isDead) {
 			Frog.draw(g);
@@ -276,7 +295,14 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			Frog.y -= 45;
 		} else {
 			//////////////////////////////////////////////////////////
-			if ((Frog.y >= 415 + 75 && Frog.y <= 460 + 75)&&(Frog.x + 43 >= ltruck2.x && Frog.x + 43 <= ltruck2.x + 180)||(Frog.x + 43 >= ltruck1.x && Frog.x + 43 <= ltruck1.x + 180)&&(Frog.y >= 325 + 75 && Frog.y <= 370 + 75)||(Frog.x + 43 >= rtruck1.x && Frog.x <= rtruck1.x + 124) && (Frog.y >= 285 + 75 && Frog.y <= 325 + 75) || (Frog.x + 43 >= rtruck2.x && Frog.x <= rtruck2.x + 124) && (Frog.y >= 375 + 75 && Frog.y <= 415 + 75)) {
+			if ((Frog.y >= 415 + 75 && Frog.y <= 460 + 75)
+					&& (Frog.x + 43 >= ltruck2.x && Frog.x + 43 <= ltruck2.x + 180)
+					|| (Frog.x + 43 >= ltruck1.x && Frog.x + 43 <= ltruck1.x + 180)
+							&& (Frog.y >= 325 + 75 && Frog.y <= 370 + 75)
+					|| (Frog.x + 43 >= rtruck1.x && Frog.x <= rtruck1.x + 124)
+							&& (Frog.y >= 285 + 75 && Frog.y <= 325 + 75)
+					|| (Frog.x + 43 >= rtruck2.x && Frog.x <= rtruck2.x + 124)
+							&& (Frog.y >= 375 + 75 && Frog.y <= 415 + 75)) {
 				hitByTruck = true;
 				collision = true;
 				System.out.println("Collided1");
@@ -483,42 +509,18 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 // ImageIO.read(this.getClass().getResourceAsStream("FroggerBackgroundCopy.png"))
 
 /**
-if (Frog.x + 43 >= rtruck2.x && Frog.x <= rtruck2.x + 124) {
-	if (Frog.y >= 375 + 75 && Frog.y <= 415 + 75) {
-		hitByTruck = true;
-		collision = true;
-		System.out.println("Collided2");
-		Frog.isDead = true;
-		frogIsDead = true;
-		if (LifeCounter >= 0) {
-			gameOverThing = true;
-		}
-	}
-}
-if (Frog.x + 43 >= ltruck1.x && Frog.x + 43 <= ltruck1.x + 180) {
-	if (Frog.y >= 325 + 75 && Frog.y <= 370 + 75) {
-		hitByTruck = true;
-		collision = true;
-		System.out.println("Collided3");
-		Frog.isDead = true;
-		frogIsDead = true;
-		if (LifeCounter >= 0) {
-			gameOverThing = true;
-		}
-	}
-}
-if (Frog.x + 43 >= ltruck2.x && Frog.x + 43 <= ltruck2.x + 180) {
-	if (Frog.y >= 415 + 75 && Frog.y <= 460 + 75) {
-		hitByTruck = true;
-		collision = true;
-		System.out.println("Collided4");
-		Frog.isDead = true;
-		frogIsDead = true;
-		if (LifeCounter >= 0) {
-			gameOverThing = true;
-		}
-	}
-}**/
+ * if (Frog.x + 43 >= rtruck2.x && Frog.x <= rtruck2.x + 124) { if (Frog.y >=
+ * 375 + 75 && Frog.y <= 415 + 75) { hitByTruck = true; collision = true;
+ * System.out.println("Collided2"); Frog.isDead = true; frogIsDead = true; if
+ * (LifeCounter >= 0) { gameOverThing = true; } } } if (Frog.x + 43 >= ltruck1.x
+ * && Frog.x + 43 <= ltruck1.x + 180) { if (Frog.y >= 325 + 75 && Frog.y <= 370
+ * + 75) { hitByTruck = true; collision = true; System.out.println("Collided3");
+ * Frog.isDead = true; frogIsDead = true; if (LifeCounter >= 0) { gameOverThing
+ * = true; } } } if (Frog.x + 43 >= ltruck2.x && Frog.x + 43 <= ltruck2.x + 180)
+ * { if (Frog.y >= 415 + 75 && Frog.y <= 460 + 75) { hitByTruck = true;
+ * collision = true; System.out.println("Collided4"); Frog.isDead = true;
+ * frogIsDead = true; if (LifeCounter >= 0) { gameOverThing = true; } } }
+ **/
 /**
  * VVTrash CodeVV /** Gamebackground.draw(g); /** object1.draw(g); /**
  * blackobject.draw(g); /** object3.draw(g); /** object4.draw(g); /**
